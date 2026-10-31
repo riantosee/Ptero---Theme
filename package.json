@@ -1,9 +1,0 @@
-{
-  "name": "mirainova-pterodactyl-themes",
-  "version": "1.0.0",
-  "description": "Official MIRAINOVA Pterodactyl v2 Theme Studio & Landing Page",
-  "private": true,
-  "scripts": {
-    "start": "node server.js"
-  }
-}
