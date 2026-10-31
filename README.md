@@ -5,6 +5,7 @@
 **Exquisite Visual Mastery & High-Octane Aesthetics for Next-Gen Game Server Panels**
 
 [![Website](https://img.shields.io/badge/Official_Web-theme.mirainova.web.id-c91e2e?style=for-the-badge)](https://theme.mirainova.web.id)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel_Live-mirainova--landing--page.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://mirainova-landing-page.vercel.app)
 [![Pterodactyl](https://img.shields.io/badge/Pterodactyl-v2.0.0--beta.2%2B_ONLY-c8a464?style=for-the-badge)](#%EF%B8%8F-critical-compatibility-notice-pterodactyl-v20-only)
 [![Instagram](https://img.shields.io/badge/Instagram-%40bisarianbisaryan-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/bisarianbisaryan/)
 [![Email](https://img.shields.io/badge/Email-riantosee%40gmail.com-0e1015?style=for-the-badge&logo=gmail&logoColor=white)](mailto:riantosee@gmail.com)
