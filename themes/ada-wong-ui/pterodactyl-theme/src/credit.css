@@ -1,0 +1,54 @@
+/*
+ * Creator credit — Ada Wong UI is designed by MIRAINOVA.
+ * Website: https://theme.mirainova.web.id
+ * Email:   riantosee@gmail.com
+ * IG:      https://www.instagram.com/bisarianbisaryan/
+ *
+ * Permanent watermark: shown on every page (auth, dashboard, admin, server) and every device.
+ * pointer-events: none keeps it from blocking clicks on panel controls.
+ */
+#app::after {
+  content: 'THEME BY MIRAINOVA  //  theme.mirainova.web.id  //  riantosee@gmail.com  //  IG @bisarianbisaryan';
+  position: fixed;
+  left: 50%;
+  bottom: 0.6rem;
+  z-index: 45;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 1.5rem);
+  padding: 0.32rem 0.95rem;
+  border: 1px solid rgba(214, 166, 86, 0.36);
+  border-left: 3px solid #f2384b;
+  border-radius: 2px;
+  background: rgba(9, 6, 8, 0.82);
+  color: #d6a656;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Lift the "CLASSIFIED" corner tag above the credit strip so they never overlap. */
+.dark body::after { bottom: 2.6rem; }
+
+#app main { padding-bottom: 3rem; }
+
+@media (max-width: 760px) {
+  #app::after {
+    content: 'THEME BY MIRAINOVA // theme.mirainova.web.id\A riantosee@gmail.com // IG @bisarianbisaryan';
+    left: 0.6rem;
+    transform: none;
+    max-width: calc(100vw - 5.5rem);
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    white-space: pre;
+    text-align: left;
+  }
+
+  #app main { padding-bottom: 4rem; }
+}

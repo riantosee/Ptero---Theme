@@ -1,0 +1,9 @@
+{
+  "description": "Mirai Social Pterodactyl extension backend.",
+  "autoload": {
+    "psr-4": { "MiraiSocial\\": "src/" }
+  },
+  "config": {
+    "autoloader-suffix": "MiraiSocialExtension"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/@pterodactyl/sdk/manifest.schema.json",
+  "id": "mirai-glassmo",
+  "type": "theme",
+  "name": "Mirai Glassmo",
+  "version": "1.2.0",
+  "requires": {
+    "panel": "^2.0.0-dev",
+    "sdk": ">=2.0.0-beta.6 <3.0"
+  },
+  "description": "Dark glass theme with restrained lavender and cyan accents.",
+  "author": "Mirai",
+  "icon": "palette",
+  "theme": {
+    "extends": "classic",
+    "stylesheet": "dist/theme.css",
+    "schemes": [
+      "dark"
+    ]
+  }
+}

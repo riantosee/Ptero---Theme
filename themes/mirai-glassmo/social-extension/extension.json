@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/@pterodactyl/sdk/manifest.schema.json",
+  "id": "mirai-social",
+  "name": "Mirai Social",
+  "version": "1.5.1",
+  "requires": {
+    "panel": "^2.0.0-dev",
+    "sdk": ">=2.0.0-beta.6 <3.0",
+    "php": "^8.3"
+  },
+  "description": "Panel chat, AI and broadcasts with reseller server terms, expiry suspension, and API controls.",
+  "author": "Mirai",
+  "provider": "MiraiSocial\\MiraiSocialProvider",
+  "icon": "messages-square",
+  "ui": {
+    "entry": "dist/client.js",
+    "mode": "native",
+    "prefix": "ms",
+    "screens": [
+      {
+        "id": "chat",
+        "area": "account",
+        "path": "social",
+        "nav": {
+          "label": "Mirai Social",
+          "icon": "messages-square"
+        }
+      }
+    ]
+  }
+}

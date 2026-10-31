@@ -1,0 +1,56 @@
+/*
+ * Creator credit — Luna Bliss UI is designed by MIRAINOVA.
+ * Website: https://theme.mirainova.web.id
+ * Email:   riantosee@gmail.com
+ * IG:      https://www.instagram.com/bisarianbisaryan/
+ *
+ * Permanent watermark: shown on every page (auth, dashboard, admin, server) and every device.
+ * pointer-events: none keeps it from blocking clicks on panel controls.
+ */
+#app::after {
+  content: 'Theme by MIRAINOVA  ·  theme.mirainova.web.id  ·  riantosee@gmail.com  ·  IG @bisarianbisaryan';
+  position: fixed;
+  left: 50%;
+  bottom: 0.6rem;
+  z-index: 45;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 1.5rem);
+  padding: 0.3rem 0.95rem;
+  border: 1px solid #0b2d80;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #3d88f8 0%, #215ad4 55%, #1745b0 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 3px 10px rgba(8, 30, 78, 0.4);
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 24, 72, 0.75);
+  font-family: 'Tahoma', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Lift the tray pill above the credit strip so they never overlap. */
+body::after,
+.dark body::after { bottom: 2.6rem; }
+
+#app main { padding-bottom: 3rem; }
+
+@media (max-width: 760px) {
+  #app::after {
+    content: 'Theme by MIRAINOVA · theme.mirainova.web.id\A riantosee@gmail.com · IG @bisarianbisaryan';
+    left: 0.6rem;
+    transform: none;
+    max-width: calc(100vw - 5.5rem);
+    border-radius: 0.6rem;
+    font-size: 0.6rem;
+    white-space: pre;
+    text-align: left;
+  }
+
+  #app main { padding-bottom: 4rem; }
+}

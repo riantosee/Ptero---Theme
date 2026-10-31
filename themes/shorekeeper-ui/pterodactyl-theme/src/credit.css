@@ -1,0 +1,54 @@
+/*
+ * Creator credit — Shorekeeper UI is designed by MIRAINOVA.
+ * Website: https://theme.mirainova.web.id
+ * Email:   riantosee@gmail.com
+ * IG:      https://www.instagram.com/bisarianbisaryan/
+ *
+ * Permanent watermark: shown on every page (auth, dashboard, admin, server) and every device.
+ * pointer-events: none keeps it from blocking clicks on panel controls.
+ */
+#app::after {
+  content: 'Theme by MIRAINOVA  ·  theme.mirainova.web.id  ·  riantosee@gmail.com  ·  IG @bisarianbisaryan';
+  position: fixed;
+  left: 50%;
+  bottom: 0.6rem;
+  z-index: 45;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 1.5rem);
+  padding: 0.32rem 0.95rem;
+  border: 1px solid rgba(222, 236, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(6, 10, 22, 0.62);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: rgba(236, 244, 255, 0.86);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keep page content clear of the credit strip. */
+#app main { padding-bottom: 3rem; }
+
+@media (max-width: 760px) {
+  #app::after {
+    content: 'Theme by MIRAINOVA · theme.mirainova.web.id\A riantosee@gmail.com · IG @bisarianbisaryan';
+    left: 0.6rem;
+    transform: none;
+    max-width: calc(100vw - 5.5rem); /* leave room for floating buttons on the right */
+    border-radius: 0.8rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+    white-space: pre;
+    text-align: left;
+  }
+
+  #app main { padding-bottom: 4rem; }
+}

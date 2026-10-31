@@ -1,0 +1,5 @@
+/* Plain CSS theme: the panel appends this stylesheet after its core bundle. */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import './backgrounds.css';
+@import './tokens.css';
+@import './credit.css';

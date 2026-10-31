@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAINOVA — Official Pterodactyl v2 Theme Studio (theme.mirainova.web.id)</title>
+  <meta name="description" content="Koleksi tema resmi MIRAINOVA untuk Pterodactyl Panel v2.0+. Dilengkapi 56 tangkapan layar dokumentasi penuh (Desktop & Mobile) untuk Ada Wong UI, Shorekeeper UI, Luna Bliss UI, dan Mirai Glassmo.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050507'/><text x='50' y='72' font-size='64' font-family='Impact,sans-serif' fill='white' text-anchor='middle'>M</text></svg>">
+</head>
+<body>
+
+  <!-- Atmospheric Snow / Ash Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- 1. TOP OVERLAY HEADER (VILLAGE STYLE) -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-bar">
+      <a href="#home" class="brand-logo">
+        <span class="brand-logo-main">MIRAINOVA</span>
+        <span class="brand-logo-sub">THEME.MIRAINOVA.WEB.ID</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#spotlight" class="nav-item">Spotlight</a>
+        <a href="#editions" class="nav-item">Ediciones</a>
+        <a href="#documentation" class="nav-item">56 Screenshots</a>
+        <a href="#architecture" class="nav-item">Instalasi & v2 Alert</a>
+        <a href="#creator" class="nav-item">Creator</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="https://www.instagram.com/bisarianbisaryan/" target="_blank" rel="noopener noreferrer" class="icon-link" title="Instagram @bisarianbisaryan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+        <a href="mailto:riantosee@gmail.com" class="icon-link" title="Email riantosee@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="https://ron-catherine-sponsors-coordination.trycloudflare.com/panel/themes" target="_blank" rel="noopener noreferrer" class="btn-outline-sm">
+          LIVE PANEL
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO POSTER SECTION (EXACT VILLAGE COMPOSITION) -->
+  <section id="home" class="hero-stage">
+    <div class="hero-bg" id="heroBg"></div>
+
+    <div class="container hero-center">
+      <h1 class="hero-monument">MIRAINOVA</h1>
+      <p class="hero-sub-spaced">PTERODACTYL THEMES</p>
+      <p class="hero-release">TERSEDIA 2026 &nbsp;•&nbsp; 4 EDISI RESMI &nbsp;•&nbsp; 56 DOKUMENTASI UI</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+        <a href="#editions" class="btn-village">JELAJAHI EDICIONES</a>
+        <button class="btn-village" id="btnHeroOpenDocs" type="button">LIHAT 56 SCREENSHOT</button>
+      </div>
+    </div>
+
+    <div class="container hero-bottom-bar">
+      <div class="hero-studio-mark">MIRAINOVA STUDIO</div>
+
+      <div class="hero-platform-specs">
+        <strong>PTERODACTYL v2.0+ &nbsp;•&nbsp; .PTEROEXT ENGINE &nbsp;•&nbsp; TAILWIND CSS v4</strong>
+        <span>Seluruh tema diuji langsung pada Pterodactyl v2.0.0-beta.2 (Desktop 1440×900 & Mobile 390×844)</span>
+      </div>
+
+      <div class="hero-age-badge">
+        <div class="badge-red-box">v2</div>
+        <div class="badge-red-label">
+          <strong>PTERODACTYL v2 ONLY</strong><br>
+          TIDAK SUPPORT v1.x
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CHARACTER & THEME SPOTLIGHT (ETHAN WINTERS ADVANCED SLIDER) -->
+  <section id="spotlight" class="spotlight-section">
+    <div class="spotlight-env-bg" id="spotEnvBg" style="background-image: url('screenshots/ada-wong-ui/04-admin-themes-desktop.png');"></div>
+
+    <div class="container">
+      <div class="spotlight-stage">
+        <!-- Left Column: Serif Title & Description -->
+        <div class="spot-left">
+          <span class="spot-kicker" id="spotKicker">EDISI 01 // TACTICAL NOIR</span>
+          <h2 class="spot-serif-title" id="spotTitle">Ada Wong UI</h2>
+          <p class="spot-paragraph" id="spotDesc">
+            Dirancang dengan atmosfer agen rahasia berbalut crimson silk dan hitam legam. Menghadirkan siku bidik emas 4-titik (targeting corner reticles) di setiap kartu, tombol chamfered polygon, dan bar vertikal laser merah tanpa mengorbankan keterbacaan panel.
+          </p>
+
+          <div class="spot-meta-tags" id="spotTags">
+            <span>v1.1.0</span>
+            <span>ada-wong-ui</span>
+            <span>7 Desktop + 7 Mobile SS</span>
+          </div>
+
+          <div class="spot-btn-row">
+            <button type="button" class="btn-hairline primary" id="spotOpenGalleryBtn">
+              PREVIEW 14 SCREENSHOT
+            </button>
+            <a href="downloads/ada-wong-ui-1.1.0.pteroext" class="btn-hairline" id="spotDownloadBtn" download>
+              UNDUH .PTEROEXT
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Character Portrait -->
+        <div class="spot-center">
+          <div class="spot-character-frame">
+            <img src="assets/ada-portrait.jpg" alt="Ada Wong UI" class="spot-character-img" id="spotCharImg">
+          </div>
+        </div>
+
+        <!-- Right Column: 5 Vertical Scene Thumbnails + Editorial Lore -->
+        <div class="spot-right">
+          <div class="spot-vertical-thumbs" id="spotVerticalThumbs">
+            <!-- Populated dynamically with the 5 key pages of the active theme -->
+          </div>
+
+          <p class="spot-right-note" id="spotRightNote">
+            Klik salah satu dari 5 tangkapan layar di atas untuk mengganti latar skena atau membuka inspektur dokumentasi penuh (Login, Dashboard, Account, Admin Overview, dan Themes Gallery).
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Circular Avatar Selector (Monochrome -> Full Color Active) -->
+      <div class="spot-avatars-bar">
+        <button type="button" class="avatar-circle active" data-theme="ada-wong-ui" title="Ada Wong UI">
+          <img src="assets/ada-portrait.jpg" alt="Ada Wong UI">
+        </button>
+        <button type="button" class="avatar-circle" data-theme="shorekeeper-ui" title="Shorekeeper UI">
+          <img src="assets/shore-portrait.jpg" alt="Shorekeeper UI">
+        </button>
+        <button type="button" class="avatar-circle" data-theme="luna-bliss-ui" title="Luna Bliss UI">
+          <img src="assets/luna-portrait.jpg" alt="Luna Bliss UI">
+        </button>
+        <button type="button" class="avatar-circle" data-theme="mirai-glassmo" title="Mirai Glassmo">
+          <img src="screenshots/mirai-glassmo/04-admin-themes-desktop.png" alt="Mirai Glassmo">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. "EDICIONES" — THEME EDITIONS CATALOG -->
+  <section id="editions" class="editions-section">
+    <div class="container">
+      <div class="editions-heading-wrap">
+        <h2 class="editions-monument-title">EDICIONES</h2>
+      </div>
+
+      <div class="editions-sub-bar">
+        <h3>Pilih edisi tema Anda</h3>
+        <span>4 PAKET EKSTENSI (.PTEROEXT) &nbsp;•&nbsp; 14 SCREENSHOT PER TEMA</span>
+      </div>
+
+      <div class="editions-grid">
+        <!-- Edition 1: Ada Wong UI -->
+        <article class="edition-item">
+          <div class="edition-poster-box js-open-doc" data-theme="ada-wong-ui" data-page="4">
+            <img src="screenshots/ada-wong-ui/04-admin-themes-desktop.png" alt="Ada Wong UI Themes Gallery">
+            <div class="edition-poster-overlay">
+              <span class="edition-ss-count">14 SCREENSHOTS (7 DESKTOP + 7 MOBILE)</span>
+              <div class="edition-poster-brand">
+                <div>
+                  <div class="edition-poster-sub">CLASSIFIED TACTICAL NOIR</div>
+                  <div class="edition-poster-logo">ADA WONG UI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="edition-name-serif">Ada Wong Edition (v1.1.0)</h4>
+          <ul class="edition-feature-list">
+            <li>Kartu obsidian gelap dengan siku bidik emas 4-titik (corner reticles)</li>
+            <li>Tombol miring chamfered polygon & aksen laser merah crimson</li>
+            <li>2 Artwork resolusi tinggi tersemat langsung di dalam CSS</li>
+            <li>Dokumentasi lengkap 7 halaman Desktop & 7 halaman Mobile</li>
+            <li>Watermark permanen resmi MIRAINOVA pada bilah bawah</li>
+          </ul>
+
+          <div class="edition-action-bar">
+            <div class="edition-price-tag">FREE <small>/ v2.0+ .pteroext</small></div>
+            <div class="edition-buttons">
+              <button type="button" class="btn-edition highlight js-open-doc" data-theme="ada-wong-ui" data-page="0">
+                PREVIEW 14 SS
+              </button>
+              <a href="downloads/ada-wong-ui-1.1.0.pteroext" class="btn-edition" download>
+                UNDUH
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Edition 2: Shorekeeper UI -->
+        <article class="edition-item">
+          <div class="edition-poster-box js-open-doc" data-theme="shorekeeper-ui" data-page="4">
+            <img src="screenshots/shorekeeper-ui/04-admin-themes-desktop.png" alt="Shorekeeper UI Themes Gallery">
+            <div class="edition-poster-overlay">
+              <span class="edition-ss-count">14 SCREENSHOTS (7 DESKTOP + 7 MOBILE)</span>
+              <div class="edition-poster-brand">
+                <div>
+                  <div class="edition-poster-sub">EDITORIAL NIGHT CINEMA</div>
+                  <div class="edition-poster-logo">SHOREKEEPER UI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="edition-name-serif">Shorekeeper Edition (v1.2.0)</h4>
+          <ul class="edition-feature-list">
+            <li>Tipografi serif editorial Cormorant Garamond yang elegan</li>
+            <li>Kartu kaca transparan bergradasi vertikal yang menyatu ke latar malam</li>
+            <li>Tombol kapsul (pill outline) dengan pendaran cahaya bintang cyan</li>
+            <li>Dokumentasi lengkap 7 halaman Desktop & 7 halaman Mobile</li>
+            <li>Watermark permanen resmi MIRAINOVA pada bilah bawah</li>
+          </ul>
+
+          <div class="edition-action-bar">
+            <div class="edition-price-tag">FREE <small>/ v2.0+ .pteroext</small></div>
+            <div class="edition-buttons">
+              <button type="button" class="btn-edition highlight js-open-doc" data-theme="shorekeeper-ui" data-page="0">
+                PREVIEW 14 SS
+              </button>
+              <a href="downloads/shorekeeper-ui-1.2.0.pteroext" class="btn-edition" download>
+                UNDUH
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Edition 3: Luna Bliss UI -->
+        <article class="edition-item">
+          <div class="edition-poster-box js-open-doc" data-theme="luna-bliss-ui" data-page="3">
+            <img src="screenshots/luna-bliss-ui/03-admin-overview-desktop.png" alt="Luna Bliss UI Admin Overview">
+            <div class="edition-poster-overlay">
+              <span class="edition-ss-count">14 SCREENSHOTS (7 DESKTOP + 7 MOBILE)</span>
+              <div class="edition-poster-brand">
+                <div>
+                  <div class="edition-poster-sub">CLASSIC 2001 DESKTOP TRIBUTE</div>
+                  <div class="edition-poster-logo">LUNA BLISS UI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="edition-name-serif">Luna Bliss Edition (v1.1.0)</h4>
+          <ul class="edition-feature-list">
+            <li>Taskbar biru royal mengilap (glossy Luna bar) & padang rumput Bliss</li>
+            <li>Kartu dialog krem klasik #f6f4ea dengan bilah judul biru membulat</li>
+            <li>Tombol Start/Launch 3D hijau segar (bebas klaim merek dagang)</li>
+            <li>Dokumentasi lengkap 7 halaman Desktop & 7 halaman Mobile</li>
+            <li>Watermark permanen resmi MIRAINOVA pada bilah bawah</li>
+          </ul>
+
+          <div class="edition-action-bar">
+            <div class="edition-price-tag">FREE <small>/ v2.0+ .pteroext</small></div>
+            <div class="edition-buttons">
+              <button type="button" class="btn-edition highlight js-open-doc" data-theme="luna-bliss-ui" data-page="0">
+                PREVIEW 14 SS
+              </button>
+              <a href="downloads/luna-bliss-ui-1.1.0.pteroext" class="btn-edition" download>
+                UNDUH
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Edition 4: Mirai Glassmo -->
+        <article class="edition-item">
+          <div class="edition-poster-box js-open-doc" data-theme="mirai-glassmo" data-page="4">
+            <img src="screenshots/mirai-glassmo/04-admin-themes-desktop.png" alt="Mirai Glassmo Themes Gallery">
+            <div class="edition-poster-overlay">
+              <span class="edition-ss-count">14 SCREENSHOTS (7 DESKTOP + 7 MOBILE)</span>
+              <div class="edition-poster-brand">
+                <div>
+                  <div class="edition-poster-sub">MINIMAL DARK GLASSMORPHISM</div>
+                  <div class="edition-poster-logo">MIRAI GLASSMO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="edition-name-serif">Mirai Glassmo Edition (v1.2.0)</h4>
+          <ul class="edition-feature-list">
+            <li>Dark glassmorphism murni dengan 18px Gaussian Backdrop Blur</li>
+            <li>Aksen lavender lembut dan cyan bersih tanpa distraksi latar</li>
+            <li>Ukuran paket sangat ringan (8 KB) untuk performa maksimal</li>
+            <li>Dokumentasi lengkap 7 halaman Desktop & 7 halaman Mobile</li>
+            <li>Desain baseline resmi ekosistem MIRAINOVA</li>
+          </ul>
+
+          <div class="edition-action-bar">
+            <div class="edition-price-tag">FREE <small>/ v2.0+ .pteroext</small></div>
+            <div class="edition-buttons">
+              <button type="button" class="btn-edition highlight js-open-doc" data-theme="mirai-glassmo" data-page="0">
+                PREVIEW 14 SS
+              </button>
+              <a href="downloads/mirai-glassmo-1.2.0.pteroext" class="btn-edition" download>
+                UNDUH
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. "LOCACIONES JUGABLES" -> EKSPLORASI 56 SCREENSHOT DOKUMENTASI LANGSUNG -->
+  <section id="documentation" class="locations-section">
+    <div class="container">
+      <div class="locations-layout">
+        <div class="locations-left">
+          <h2>Dokumentasi Panel Lengkap</h2>
+          <p>
+            Jelajahi seluruh <strong>56 tangkapan layar asli</strong> (7 halaman utama × 2 viewport × 4 tema) yang diambil langsung dari Pterodactyl v2 menggunakan Mozilla Firefox.
+          </p>
+
+          <div class="gallery-filter-group">
+            <span class="filter-label">Pilih Tema</span>
+            <div class="filter-pills" id="galleryThemePills">
+              <button type="button" class="filter-pill active" data-theme="ada-wong-ui">Ada Wong</button>
+              <button type="button" class="filter-pill" data-theme="shorekeeper-ui">Shorekeeper</button>
+              <button type="button" class="filter-pill" data-theme="luna-bliss-ui">Luna Bliss</button>
+              <button type="button" class="filter-pill" data-theme="mirai-glassmo">Mirai Glassmo</button>
+            </div>
+          </div>
+
+          <div class="gallery-filter-group">
+            <span class="filter-label">Resolusi Viewport</span>
+            <div class="filter-pills" id="galleryDevicePills">
+              <button type="button" class="filter-pill active" data-device="desktop">Desktop (1440×900)</button>
+              <button type="button" class="filter-pill" data-device="mobile">Mobile (390×844)</button>
+            </div>
+          </div>
+
+          <div class="carousel-arrows">
+            <button type="button" class="arrow-btn" id="trackPrev" title="Geser Kiri">&larr;</button>
+            <button type="button" class="arrow-btn" id="trackNext" title="Geser Kanan">&rarr;</button>
+          </div>
+        </div>
+
+        <div class="locations-track-wrap" id="locationsTrackWrap">
+          <div class="locations-track" id="locationsTrack">
+            <!-- Populated dynamically with all 7 captured pages -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. COMPATIBILITY ALERT & STEP-BY-STEP INSTALLATION -->
+  <section id="architecture" class="arch-section">
+    <div class="container arch-grid">
+      <!-- Left: Explicit Answer on v1.x vs v2.0+ Compatibility -->
+      <div class="compat-card">
+        <span class="compat-kicker">PERINGATAN ARSITEKTUR SISTEM</span>
+        <h3>Apakah Support Pterodactyl Versi Sebelumnya (v1.x)?</h3>
+        <p>
+          <strong style="color:#ff8093;">TIDAK SUPPORT PTERODACTYL v1.x (v1.11.x KE BAWAH).</strong><br>
+          Seluruh tema MIRAINOVA dibangun khusus di atas <strong>Pterodactyl Extension & Theme System v2</strong> (format <code>.pteroext</code> dan Tailwind CSS v4). Panel versi lama (v1.x) menggunakan struktur Blade monolitik + Webpack/Laravel Mix dan tidak memiliki perintah <code>php artisan p:extension:install</code> maupun fitur hot-swap theme.
+        </p>
+
+        <div class="compat-matrix">
+          <div class="matrix-row">
+            <span>Pterodactyl v2.0.0-beta.2+</span>
+            <span class="matrix-ok">✓ SUPPORT PENUH (NATIVE)</span>
+          </div>
+          <div class="matrix-row">
+            <span>Pterodactyl v2.x Dev Branch</span>
+            <span class="matrix-ok">✓ SUPPORT PENUH</span>
+          </div>
+          <div class="matrix-row">
+            <span>Pterodactyl v1.11.x (Legacy)</span>
+            <span class="matrix-no">✕ TIDAK SUPPORT (Beda Arsitektur)</span>
+          </div>
+          <div class="matrix-row">
+            <span>Blueprint v1 Extension</span>
+            <span class="matrix-no">✕ TIDAK KOMPATIBEL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Installation Pipeline & Terminal -->
+      <div class="install-box">
+        <h3>Panduan Instalasi Theme</h3>
+        <p>Proses pemasangan dilakukan langsung melalui CLI artisan Pterodactyl v2 dalam hitungan detik tanpa perlu rebuild aset frontend secara manual.</p>
+
+        <div class="steps-mini-grid">
+          <div class="step-mini">
+            <strong>01 // UNDUH PAKET</strong>
+            <span>Unduh file <code>.pteroext</code> dari katalog Ediciones di atas.</span>
+          </div>
+          <div class="step-mini">
+            <strong>02 // UPLOAD KE VPS</strong>
+            <span>Unggah file ke direktori server VPS Anda melalui SFTP/SCP.</span>
+          </div>
+          <div class="step-mini">
+            <strong>03 // INSTALL EKSTENSI</strong>
+            <span>Jalankan <code>p:extension:install</code> pada folder Pterodactyl.</span>
+          </div>
+          <div class="step-mini">
+            <strong>04 // AKTIFKAN THEME</strong>
+            <span>Aktifkan via CLI <code>p:theme:activate</code> atau menu Admin &rarr; Themes.</span>
+          </div>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <span>BASH // /var/www/pterodactyl</span>
+            <button type="button" class="btn-outline-sm" id="btnCopyCli" style="padding:4px 10px;">SALIN PERINTAH</button>
+          </div>
+          <pre class="terminal-pre"><code><span class="c"># 1. Masuk ke direktori instalasi Pterodactyl v2</span>
+<span class="k">cd</span> <span class="s">/var/www/pterodactyl</span>
+
+<span class="c"># 2. Pasang paket ekstensi tema (.pteroext)</span>
+<span class="k">php</span> artisan p:extension:install <span class="s">/root/ada-wong-ui-1.1.0.pteroext</span>
+
+<span class="c"># 3. Aktifkan tema (pilihan: ada-wong-ui | shorekeeper-ui | luna-bliss-ui | mirai-glassmo)</span>
+<span class="k">php</span> artisan p:theme:activate <span class="s">ada-wong-ui</span>
+
+<span class="c"># 4. Bersihkan cache jika diperlukan</span>
+<span class="k">php</span> artisan view:clear && <span class="k">php</span> artisan config:clear</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER & PERMANENT WATERMARK -->
+  <footer id="creator" class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-wm-box">
+          <strong>MIRAINOVA</strong>
+          <p>
+            Creator & Studio Desain Tema Resmi untuk Pterodactyl Panel v2.<br>
+            Seluruh tema dilengkapi watermark resmi kreator dan telah melewati pengujian visual penuh pada resolusi Desktop & Mobile.
+          </p>
+        </div>
+
+        <div class="footer-links-row">
+          <div class="footer-col">
+            <h5>Kontak & Identitas</h5>
+            <ul>
+              <li><a href="https://theme.mirainova.web.id" target="_blank" rel="noopener">🌐 theme.mirainova.web.id</a></li>
+              <li><a href="mailto:riantosee@gmail.com">✉️ riantosee@gmail.com</a></li>
+              <li><a href="https://www.instagram.com/bisarianbisaryan/" target="_blank" rel="noopener">📸 IG: @bisarianbisaryan</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Unduh Langsung</h5>
+            <ul>
+              <li><a href="downloads/ada-wong-ui-1.1.0.pteroext" download>Ada Wong UI v1.1.0</a></li>
+              <li><a href="downloads/shorekeeper-ui-1.2.0.pteroext" download>Shorekeeper UI v1.2.0</a></li>
+              <li><a href="downloads/luna-bliss-ui-1.1.0.pteroext" download>Luna Bliss UI v1.1.0</a></li>
+              <li><a href="downloads/mirai-glassmo-1.2.0.pteroext" download>Mirai Glassmo v1.2.0</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 MIRAINOVA (Rianto See). All rights reserved.</span>
+        <span>Theme by MIRAINOVA &nbsp;•&nbsp; theme.mirainova.web.id &nbsp;•&nbsp; riantosee@gmail.com &nbsp;•&nbsp; @bisarianbisaryan</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 8. FULL-SCREEN 14-SCREENSHOT DOCUMENTATION INSPECTOR MODAL -->
+  <div class="doc-modal" id="docModal" aria-hidden="true">
+    <div class="doc-modal-header">
+      <div class="doc-modal-title-group">
+        <h3 id="docModalTitle">Ada Wong UI — Dokumentasi Lengkap (14 Screenshot)</h3>
+        <div class="doc-theme-tabs" id="docThemeTabs">
+          <button type="button" class="doc-theme-tab active" data-theme="ada-wong-ui">Ada Wong</button>
+          <button type="button" class="doc-theme-tab" data-theme="shorekeeper-ui">Shorekeeper</button>
+          <button type="button" class="doc-theme-tab" data-theme="luna-bliss-ui">Luna Bliss</button>
+          <button type="button" class="doc-theme-tab" data-theme="mirai-glassmo">Mirai Glassmo</button>
+        </div>
+      </div>
+
+      <div class="doc-view-controls">
+        <button type="button" class="doc-view-btn active" data-mode="both">Desktop + Mobile</button>
+        <button type="button" class="doc-view-btn" data-mode="desktop">Desktop (1440×900)</button>
+        <button type="button" class="doc-view-btn" data-mode="mobile">Mobile (390×844)</button>
+        <a href="downloads/ada-wong-ui-1.1.0.pteroext" class="btn-outline-sm" id="docModalDownload" download>UNDUH .PTEROEXT</a>
+        <button type="button" class="doc-close-btn" id="docModalClose">TUTUP [ESC]</button>
+      </div>
+    </div>
+
+    <div class="doc-modal-body">
+      <!-- Left Sidebar: All 7 Captured Pages -->
+      <div class="doc-page-sidebar" id="docPageSidebar">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+      <!-- Main Stage: Side-by-Side or Single High-Res Screenshot -->
+      <div class="doc-stage-canvas">
+        <div class="doc-stage-frames" id="docStageFrames">
+          <div class="frame-desktop-wrap" id="frameDesktopWrap">
+            <img src="" alt="Desktop Screenshot" id="modalDesktopImg">
+            <span class="frame-caption" id="modalDesktopCap">DESKTOP 1440×900</span>
+          </div>
+          <div class="frame-mobile-wrap" id="frameMobileWrap">
+            <img src="" alt="Mobile Screenshot" id="modalMobileImg">
+            <span class="frame-caption" id="modalMobileCap">MOBILE 390×844</span>
+          </div>
+        </div>
+
+        <div class="doc-stage-nav">
+          <button type="button" class="arrow-btn" id="modalPrevPage">&larr;</button>
+          <span id="modalPageCounter">Halaman 1 / 7 — 00 Login Page</span>
+          <button type="button" class="arrow-btn" id="modalNextPage">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-msg" id="toastMsg">Perintah berhasil disalin!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

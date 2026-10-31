@@ -1,0 +1,886 @@
+/*
+ * Luna Bliss UI — v1.0.0 ("Classic 2001 Luna Desktop & Bliss Meadow")
+ *
+ * Trademark-safe nostalgic desktop theme inspired by the iconic 2001 Luna aesthetic:
+ *   • Full-bleed Bliss meadow wallpaper (wide desktop + portrait mobile crop)
+ *   • Glossy 3D Luna Royal Blue top taskbar with a 3D Green Launch Pill brand button
+ *   • Explorer-style Blue Task Pane sidebar with cream & royal-blue task cards
+ *   • Luna Dialog Windows: warm cream glass body (#f6f4ea), dark navy ink, and
+ *     glossy 3D Royal Blue titlebars with a top-right coral close-box accent
+ *   • Tactile 3D Luna buttons with the signature warm amber hover ring (#f8b334)
+ */
+
+:root,
+.dark {
+  --font-sans: 'Tahoma', 'Plus Jakarta Sans', 'Trebuchet MS', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Trebuchet MS', 'Plus Jakarta Sans', 'Tahoma', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Lucida Console', Consolas, monospace;
+
+  --lb-blue-top: #3d88f8;
+  --lb-blue-mid: #225ed9;
+  --lb-blue-deep: #123b96;
+  --lb-frame: #0046bf;
+  --lb-green-top: #65d661;
+  --lb-green-mid: #38a335;
+  --lb-green-deep: #21701e;
+  --lb-amber: #f8b334;
+  --lb-coral: #e04b38;
+  --lb-cream: rgba(246, 244, 234, 0.92);
+  --lb-cream-solid: #f4f2e6;
+  --lb-ink: #0f203c;
+  --lb-ink-muted: #425675;
+
+  /* Semantic tokens — warm Luna dialog cream surfaces + crisp navy ink */
+  --background: oklch(0.95 0.014 92);
+  --foreground: oklch(0.22 0.045 252);
+
+  --card: oklch(0.96 0.012 92 / 0.92);
+  --card-foreground: oklch(0.22 0.045 252);
+
+  --popover: oklch(0.97 0.01 92 / 0.98);
+  --popover-foreground: oklch(0.22 0.045 252);
+
+  --muted: oklch(0.91 0.016 90 / 0.85);
+  --muted-foreground: oklch(0.42 0.04 250);
+
+  --sunken: oklch(0.99 0.004 95);
+
+  --accent: oklch(0.52 0.19 258);
+  --accent-foreground: oklch(0.99 0.005 95);
+
+  --border: oklch(0.58 0.12 252 / 0.38);
+  --input: oklch(0.99 0.003 95);
+  --input-border: oklch(0.62 0.08 248);
+  --ring: oklch(0.78 0.16 75);
+
+  --primary: oklch(0.52 0.19 258);
+  --primary-foreground: oklch(0.99 0.005 95);
+
+  --secondary: oklch(0.93 0.015 90);
+  --secondary-foreground: oklch(0.24 0.05 252);
+
+  --success: oklch(0.58 0.17 145);
+  --success-foreground: oklch(0.99 0.005 95);
+
+  --warning: oklch(0.76 0.16 75);
+  --warning-foreground: oklch(0.20 0.04 60);
+
+  --destructive: oklch(0.58 0.20 28);
+  --destructive-foreground: oklch(0.99 0.005 95);
+
+  --info: oklch(0.54 0.18 255);
+  --info-foreground: oklch(0.99 0.005 95);
+
+  --sidebar: oklch(0.56 0.15 256 / 0.90);
+  --sidebar-foreground: oklch(0.99 0.005 95);
+  --sidebar-primary: oklch(0.48 0.19 258);
+  --sidebar-primary-foreground: oklch(0.99 0.005 95);
+  --sidebar-accent: oklch(0.96 0.01 92 / 0.92);
+  --sidebar-accent-foreground: oklch(0.24 0.06 254);
+  --sidebar-border: oklch(0.42 0.16 258);
+  --sidebar-ring: oklch(0.78 0.16 75);
+
+  --radius: 0.45rem;
+
+  --shadow-xs: 0 1px 3px rgba(9, 30, 66, 0.18);
+  --shadow-sm: 0 4px 12px rgba(9, 30, 66, 0.22);
+  --shadow-md: 0 10px 28px rgba(9, 30, 66, 0.28);
+  --shadow-lg: 0 18px 46px rgba(9, 30, 66, 0.36);
+
+  --terminal: oklch(0.14 0.02 250 / 0.96);
+  --terminal-background: oklch(0.14 0.02 250 / 0.96);
+  --terminal-foreground: oklch(0.94 0.01 95);
+  --terminal-red: oklch(0.68 0.20 26);
+  --terminal-green: oklch(0.76 0.17 146);
+  --terminal-yellow: oklch(0.84 0.15 82);
+  --terminal-blue: oklch(0.72 0.15 250);
+  --terminal-magenta: oklch(0.72 0.17 330);
+  --terminal-cyan: oklch(0.78 0.12 200);
+  --terminal-white: oklch(0.97 0.005 95);
+  --terminal-black: oklch(0.28 0.02 250);
+
+  --scrollbar-thumb: rgba(34, 94, 217, 0.55);
+  --scrollbar-thumb-fill: rgba(24, 72, 180, 0.8);
+}
+
+/* ───────────── Full-bleed Bliss Meadow Wallpaper (Desktop & Portrait Mobile) ───────────── */
+body,
+.dark body {
+  position: relative;
+  min-height: 100dvh;
+  background-color: #2468d8;
+  color: var(--lb-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before,
+.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: #2468d8;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(12, 54, 136, 0.30) 0%,
+      rgba(18, 74, 168, 0.08) 38%,
+      rgba(22, 68, 20, 0.10) 78%,
+      rgba(14, 46, 14, 0.28) 100%
+    ),
+    var(--lb-art-wide);
+  background-size: cover, cover;
+  background-position: center, center bottom;
+  background-repeat: no-repeat;
+}
+
+@media (max-aspect-ratio: 4/5) {
+  body::before,
+  .dark body::before {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(12, 54, 136, 0.34) 0%,
+        rgba(18, 74, 168, 0.10) 40%,
+        rgba(16, 54, 16, 0.26) 100%
+      ),
+      var(--lb-art-portrait);
+    background-size: cover, cover;
+    background-position: center, center bottom;
+  }
+}
+
+/* Nostalgic tray pill watermark in bottom-right corner on desktop */
+body::after,
+.dark body::after {
+  content: 'LUNA BLISS EDITION // SYSTEM READY';
+  position: fixed;
+  right: 1rem;
+  bottom: 0.75rem;
+  z-index: 40;
+  pointer-events: none;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(180deg, #3986f7 0%, #1c54c7 100%);
+  box-shadow: 0 4px 12px rgba(8, 30, 78, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 24, 72, 0.75);
+}
+
+#app,
+.dark #app {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+::selection,
+.dark ::selection {
+  background: #316ac5;
+  color: #ffffff;
+}
+
+/* ───────────── Desktop Headings over Bliss Sky & Clouds ───────────── */
+main h1,
+.dark main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 3vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-shadow:
+    1px 2px 0 #0c3582,
+    0 3px 10px rgba(6, 28, 78, 0.72);
+}
+
+main h2,
+.dark main h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow:
+    1px 1px 0 #0c3582,
+    0 2px 8px rgba(6, 28, 78, 0.68);
+}
+
+/* Headings inside dialog/cards use dark navy ink */
+[data-ui='card'] h1,
+[data-ui='card'] h2,
+[data-ui='card'] h3,
+.dark [data-ui='card'] h1,
+.dark [data-ui='card'] h2,
+.dark [data-ui='card'] h3,
+[role='dialog'] h1,
+[role='dialog'] h2,
+.dark [role='dialog'] h1,
+.dark [role='dialog'] h2 {
+  color: var(--lb-ink);
+  text-shadow: none;
+}
+
+main h1 + p,
+main header p,
+.dark main h1 + p,
+.dark main header p {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  background: rgba(15, 48, 118, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  color: #f7fbff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 18, 54, 0.75);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* ───────────── Top Header Bar — Glossy Luna Taskbar & Green Launch Pill ───────────── */
+#app > header,
+#app > div > header,
+.dark #app > header,
+.dark #app > div > header {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #4993fe 0%,
+    #2966e2 10%,
+    #2258d1 55%,
+    #1944b0 88%,
+    #113188 100%
+  );
+  border-bottom: 2px solid #0d2970;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.52),
+    0 4px 16px rgba(6, 24, 68, 0.42);
+  color: #ffffff;
+}
+
+/* Glossy 3D Green "Launch / Start" Pill on the brand link */
+#app > header a:first-child,
+#app > div > header a:first-child,
+.dark #app > header a:first-child,
+.dark #app > div > header a:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 1.15rem 0.38rem 0.9rem;
+  border-radius: 4px 16px 16px 4px;
+  border: 1px solid #1b6318;
+  background: linear-gradient(
+    180deg,
+    #74e370 0%,
+    #42b53e 16%,
+    #31982e 78%,
+    #1f6f1c 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 6px rgba(0, 28, 0, 0.45);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0, 42, 0, 0.85);
+}
+
+#app > header a:first-child:hover,
+#app > div > header a:first-child:hover,
+.dark #app > header a:first-child:hover,
+.dark #app > div > header a:first-child:hover {
+  filter: brightness(1.07);
+}
+
+/* ───────────── Sidebar — Luna Explorer Left Task Pane ───────────── */
+aside,
+nav[aria-label='Main'],
+[data-ui='sidebar'],
+.dark aside,
+.dark nav[aria-label='Main'],
+.dark [data-ui='sidebar'] {
+  background: linear-gradient(
+    180deg,
+    rgba(116, 158, 236, 0.90) 0%,
+    rgba(96, 131, 220, 0.92) 55%,
+    rgba(78, 108, 202, 0.95) 100%
+  );
+  border-right: 2px solid #003c9d;
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.45),
+    4px 0 18px rgba(8, 28, 76, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+aside a,
+aside button,
+nav[aria-label='Main'] a,
+.dark aside a,
+.dark aside button,
+.dark nav[aria-label='Main'] a {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(232, 240, 254, 0.88) 100%);
+  box-shadow: 0 2px 5px rgba(12, 40, 96, 0.16);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #143a82 !important;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+aside a:hover,
+aside button:hover,
+nav[aria-label='Main'] a:hover,
+.dark aside a:hover,
+.dark aside button:hover,
+.dark nav[aria-label='Main'] a:hover {
+  background: #ffffff;
+  border-color: var(--lb-amber);
+  box-shadow: inset 0 0 0 1px var(--lb-amber), 0 3px 8px rgba(12, 40, 96, 0.24);
+  color: #0a2966 !important;
+}
+
+aside a[aria-current='page'],
+aside a[data-active='true'],
+aside a.active,
+nav[aria-label='Main'] a[aria-current='page'],
+.dark aside a[aria-current='page'],
+.dark aside a[data-active='true'],
+.dark aside a.active,
+.dark nav[aria-label='Main'] a[aria-current='page'] {
+  background: linear-gradient(180deg, #3c86f7 0%, #215ad4 20%, #1745b0 100%);
+  border-color: #0b2d80;
+  border-left: 4px solid var(--lb-amber);
+  color: #ffffff !important;
+  text-shadow: 1px 1px 1px rgba(0, 24, 72, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 4px 10px rgba(9, 30, 82, 0.35);
+}
+
+/* ───────────── Server Sub-Navigation Bar ───────────── */
+[aria-label='Server'],
+.dark [aria-label='Server'] {
+  background: linear-gradient(180deg, #f9f8f2 0%, #eae6d6 100%);
+  border-top: 1px solid #ffffff;
+  border-bottom: 2px solid #0046bf;
+  box-shadow: 0 4px 12px rgba(9, 30, 66, 0.18);
+}
+
+[aria-label='Server'] a,
+.dark [aria-label='Server'] a {
+  position: relative;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #163a7a;
+  transition: color 140ms ease, background-color 140ms ease;
+}
+
+[aria-label='Server'] a:hover,
+.dark [aria-label='Server'] a:hover {
+  color: #0046bf;
+  background: rgba(59, 134, 247, 0.12);
+}
+
+[aria-label='Server'] a[aria-current='page'],
+[aria-label='Server'] a.active,
+.dark [aria-label='Server'] a[aria-current='page'],
+.dark [aria-label='Server'] a.active {
+  color: #0b2d80;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+[aria-label='Server'] a[aria-current='page']::after,
+[aria-label='Server'] a.active::after,
+.dark [aria-label='Server'] a[aria-current='page']::after,
+.dark [aria-label='Server'] a.active::after {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  right: 0.35rem;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(90deg, #f8b334, #e58300);
+}
+
+/* ───────────── Classic Luna Folder Tabs ───────────── */
+[role='tablist'],
+[data-ui='tabs'][data-part='list'],
+.dark [role='tablist'],
+.dark [data-ui='tabs'][data-part='list'] {
+  background: rgba(244, 242, 230, 0.88);
+  border: 1px solid #0046bf;
+  border-radius: 6px;
+  padding: 0.22rem;
+  gap: 0.25rem;
+  box-shadow: 0 4px 12px rgba(9, 30, 66, 0.2);
+}
+
+[role='tab'],
+[data-ui='tabs'][data-part='trigger'],
+.dark [role='tab'],
+.dark [data-ui='tabs'][data-part='trigger'] {
+  padding: 0.48rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1c3a6e;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+[role='tab']:hover,
+.dark [role='tab']:hover {
+  border-color: var(--lb-amber);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+[role='tab'][aria-selected='true'],
+[role='tab'][data-state='active'],
+[data-ui='tabs'][data-part='trigger'][data-state='active'],
+.dark [role='tab'][aria-selected='true'],
+.dark [role='tab'][data-state='active'],
+.dark [data-ui='tabs'][data-part='trigger'][data-state='active'] {
+  color: #ffffff;
+  background: linear-gradient(180deg, #3d88f8 0%, #1e57cf 100%);
+  border-color: #0e3896;
+  border-top: 2px solid var(--lb-amber);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  text-shadow: 1px 1px 1px rgba(0, 24, 72, 0.65);
+}
+
+/* ───────────── Cards — Authentic Luna Dialog Windows ───────────── */
+[data-ui='card'][data-part='root'],
+[class~='bg-card'],
+.dark [data-ui='card'][data-part='root'],
+.dark [class~='bg-card'] {
+  position: relative;
+  border: 2px solid #0048c4;
+  border-radius: 8px 8px 5px 5px;
+  background-color: rgba(246, 244, 234, 0.92);
+  color: var(--lb-ink);
+  background-image:
+    /* Top-right Luna red close-button accent pill inside the top window rim */
+    linear-gradient(
+      90deg,
+      #2764e0 0%,
+      #4892fe 28%,
+      #1f56cc 91%,
+      #e85a47 91%,
+      #c93322 100%
+    ),
+    /* Warm cream Luna dialog surface gradient */
+    linear-gradient(
+      180deg,
+      rgba(252, 251, 245, 0.94) 0%,
+      rgba(244, 241, 229, 0.92) 60%,
+      rgba(235, 231, 216, 0.94) 100%
+    );
+  background-size: 100% 7px, 100% 100%;
+  background-position: top center, center;
+  background-repeat: no-repeat;
+  box-shadow:
+    inset 0 8px 0 rgba(255, 255, 255, 0.35),
+    0 12px 32px rgba(8, 30, 74, 0.34),
+    0 2px 6px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+a:hover > [data-ui='card'][data-part='root'],
+[data-ui='card'][data-part='root']:hover,
+.dark a:hover > [data-ui='card'][data-part='root'],
+.dark [data-ui='card'][data-part='root']:hover {
+  border-color: #0058ef;
+  box-shadow:
+    inset 0 8px 0 rgba(255, 255, 255, 0.45),
+    0 16px 38px rgba(8, 30, 74, 0.42),
+    0 0 0 1px rgba(248, 179, 52, 0.55);
+}
+
+/* Full Glossy Luna Blue Titlebar when a card has a header part */
+[data-ui='card'][data-part='header'],
+.dark [data-ui='card'][data-part='header'] {
+  background: linear-gradient(
+    180deg,
+    #4892fe 0%,
+    #2663e0 14%,
+    #1e52c6 84%,
+    #12368e 100%
+  );
+  border-bottom: 1px solid #0b2870;
+  color: #ffffff !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+}
+
+[data-ui='card'][data-part='title'],
+.dark [data-ui='card'][data-part='title'] {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 1px rgba(0, 22, 68, 0.8);
+}
+
+/* ───────────── Buttons — Tactile 3D Luna Controls + Amber Hover Ring ───────────── */
+[data-ui='button'],
+button[type='submit'],
+.dark [data-ui='button'],
+.dark button[type='submit'] {
+  position: relative;
+  border-radius: 4px;
+  padding-inline: 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+/* Primary action buttons: Glossy Luna Royal Blue 3D button */
+[data-ui='button'][data-variant='default'],
+[data-ui='button'][data-variant='primary'],
+[data-ui='button']:not([data-variant]),
+button[type='submit'],
+.dark [data-ui='button'][data-variant='default'],
+.dark [data-ui='button'][data-variant='primary'],
+.dark [data-ui='button']:not([data-variant]),
+.dark button[type='submit'] {
+  background: linear-gradient(
+    180deg,
+    #4c95ff 0%,
+    #2765e2 16%,
+    #1d52c4 85%,
+    #133a94 100%
+  );
+  border: 1px solid #092768;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 1px rgba(0, 22, 68, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.52),
+    0 2px 5px rgba(9, 30, 74, 0.28);
+}
+
+[data-ui='button'][data-variant='default']:hover,
+[data-ui='button'][data-variant='primary']:hover,
+[data-ui='button']:not([data-variant]):hover,
+button[type='submit']:hover,
+.dark [data-ui='button'][data-variant='default']:hover,
+.dark [data-ui='button'][data-variant='primary']:hover,
+.dark [data-ui='button']:not([data-variant]):hover,
+.dark button[type='submit']:hover {
+  background: linear-gradient(
+    180deg,
+    #5ea2ff 0%,
+    #2f6fed 16%,
+    #225ad1 85%,
+    #1640a0 100%
+  );
+  box-shadow:
+    inset 0 0 0 2px var(--lb-amber),
+    0 3px 8px rgba(9, 30, 74, 0.34);
+}
+
+/* Secondary / Outline / Ghost buttons: Classic Luna Cream 3D button with Amber Hover Ring */
+[data-ui='button'][data-variant='secondary'],
+[data-ui='button'][data-variant='outline'],
+[data-ui='button'][data-variant='ghost'],
+.dark [data-ui='button'][data-variant='secondary'],
+.dark [data-ui='button'][data-variant='outline'],
+.dark [data-ui='button'][data-variant='ghost'] {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f6f5ee 48%,
+    #e4e1d3 88%,
+    #d5d1c2 100%
+  );
+  border: 1px solid #003c74;
+  color: #0f2342 !important;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    0 1px 3px rgba(9, 30, 66, 0.16);
+}
+
+[data-ui='button'][data-variant='secondary']:hover,
+[data-ui='button'][data-variant='outline']:hover,
+[data-ui='button'][data-variant='ghost']:hover,
+.dark [data-ui='button'][data-variant='secondary']:hover,
+.dark [data-ui='button'][data-variant='outline']:hover,
+.dark [data-ui='button'][data-variant='ghost']:hover {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #faf9f4 50%,
+    #ebe8dc 100%
+  );
+  box-shadow:
+    inset 0 0 0 2px var(--lb-amber),
+    0 2px 5px rgba(9, 30, 66, 0.22);
+}
+
+[data-ui='button'][data-variant='destructive'],
+.dark [data-ui='button'][data-variant='destructive'] {
+  background: linear-gradient(180deg, #f27463 0%, #dc4330 20%, #b82616 100%);
+  border: 1px solid #7a1308;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 1px rgba(60, 0, 0, 0.7);
+}
+
+/* ───────────── Badges ───────────── */
+[data-ui='badge'],
+.dark [data-ui='badge'] {
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid rgba(0, 70, 191, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+  color: #123b96;
+}
+
+/* ───────────── Classic Sunken 3D Form Inputs ───────────── */
+input:not([type='checkbox']):not([type='radio']),
+textarea,
+select,
+[data-ui='input'],
+[data-ui='textarea'],
+[data-ui='select'][data-part='trigger'],
+.dark input:not([type='checkbox']):not([type='radio']),
+.dark textarea,
+.dark select,
+.dark [data-ui='input'],
+.dark [data-ui='textarea'],
+.dark [data-ui='select'][data-part='trigger'] {
+  border: 1px solid #7f9db9;
+  border-top-color: #5c7a99;
+  border-radius: 3px;
+  background: #ffffff !important;
+  color: #0f203c !important;
+  box-shadow: inset 1px 1px 2px rgba(15, 36, 72, 0.14);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+input::placeholder,
+textarea::placeholder,
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6e8098;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #0054e3;
+  box-shadow:
+    inset 1px 1px 2px rgba(15, 36, 72, 0.12),
+    0 0 0 2px rgba(248, 179, 52, 0.65);
+}
+
+:focus-visible,
+.dark :focus-visible {
+  outline: 2px solid var(--lb-amber);
+  outline-offset: 2px;
+}
+
+label,
+[data-ui='label'],
+.dark label,
+.dark [data-ui='label'] {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #16325c !important;
+}
+
+/* ───────────── Tables ───────────── */
+[data-ui='table'][data-part='headerCell'],
+.dark [data-ui='table'][data-part='headerCell'] {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #143a82;
+  background: linear-gradient(180deg, #ffffff 0%, #e9e6d8 100%);
+  border-bottom: 1px solid #b8b4a2;
+}
+
+[data-ui='table'][data-part='row']:hover,
+.dark [data-ui='table'][data-part='row']:hover {
+  background-color: rgba(49, 106, 197, 0.12);
+}
+
+/* ───────────── Command Prompt Console Window ───────────── */
+section[aria-label='Console'],
+.dark section[aria-label='Console'] {
+  border: 2px solid #0048c4;
+  border-top: 8px solid #1f59d1;
+  border-radius: 8px 8px 4px 4px;
+  background: #0c1220;
+  color: #f4f6fa;
+  box-shadow: 0 18px 44px rgba(8, 30, 74, 0.45);
+  overflow: hidden;
+}
+
+section[aria-label='Console'] > div:first-child,
+.dark section[aria-label='Console'] > div:first-child {
+  padding: 1.25rem;
+}
+
+section[aria-label='Console'] input[aria-label='Console command'],
+.dark section[aria-label='Console'] input[aria-label='Console command'] {
+  min-height: 3.1rem;
+  border-top: 1px solid #2758b8;
+  border-radius: 0;
+  background: #10192e !important;
+  color: #ffffff !important;
+  font-family: var(--font-mono);
+  caret-color: #65d661;
+}
+
+/* ───────────── Dialogs & Popovers ───────────── */
+[role='dialog'],
+[data-ui='dialog'][data-part='content'],
+[data-ui='popover'][data-part='content'],
+.dark [role='dialog'],
+.dark [data-ui='dialog'][data-part='content'],
+.dark [data-ui='popover'][data-part='content'] {
+  border: 2px solid #0048c4;
+  border-top: 8px solid #2663e0;
+  border-radius: 8px 8px 5px 5px;
+  background: #f5f3e7;
+  color: #0f203c;
+  box-shadow: var(--shadow-lg);
+}
+
+[data-ui='dialog'][data-part='backdrop'],
+.dark [data-ui='dialog'][data-part='backdrop'] {
+  background: rgba(10, 34, 84, 0.48);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+/* Classic chunked green progress bar */
+[data-ui='progress'],
+.dark [data-ui='progress'] {
+  background: #ffffff;
+  border: 1px solid #6884a3;
+  border-radius: 3px;
+  padding: 1px;
+}
+
+[role='progressbar'],
+.dark [role='progressbar'] {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar,
+.dark ::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track { background: #e8e5d8; }
+::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  border: 1px solid #1648a8;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #589bfe, #2966e2);
+}
+
+/* ───────────── Responsive & Mobile Multi-Device Support ───────────── */
+@media (max-width: 1024px) {
+  body::after,
+  .dark body::after { display: none; }
+}
+
+@media (max-width: 720px) {
+  body,
+  .dark body { overflow-x: clip; }
+
+  #app,
+  #app main,
+  #app main > *,
+  .dark #app,
+  .dark #app main,
+  .dark #app main > * { min-width: 0; max-width: 100%; }
+
+  #app > header,
+  #app > div > header,
+  .dark #app > header,
+  .dark #app > div > header { padding-inline: clamp(0.65rem, 3vw, 1rem); }
+
+  main h1,
+  .dark main h1 {
+    font-size: clamp(1.65rem, 7vw, 2.15rem);
+    overflow-wrap: anywhere;
+  }
+
+  [aria-label='Server'],
+  .dark [aria-label='Server'] { width: 100%; max-width: 100vw; overflow: hidden; }
+
+  [aria-label='Server'] > div,
+  .dark [aria-label='Server'] > div {
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  [aria-label='Server'] > div::-webkit-scrollbar,
+  .dark [aria-label='Server'] > div::-webkit-scrollbar { display: none; }
+
+  [aria-label='Server'] a,
+  [aria-label='Server'] [data-status],
+  .dark [aria-label='Server'] a,
+  .dark [aria-label='Server'] [data-status] {
+    min-height: 44px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.74rem;
+  }
+
+  [data-ui='card'][data-part='root'],
+  [class~='bg-card'],
+  .dark [data-ui='card'][data-part='root'],
+  .dark [class~='bg-card'] { min-width: 0; max-width: 100%; }
+
+  [data-ui='button'],
+  .dark [data-ui='button'] { min-height: 44px; white-space: normal; }
+
+  input:not([type='checkbox']):not([type='radio']),
+  textarea,
+  select,
+  .dark input:not([type='checkbox']):not([type='radio']),
+  .dark textarea,
+  .dark select { font-size: 16px; }
+
+  section[aria-label='Console'] > div:first-child,
+  .dark section[aria-label='Console'] > div:first-child { padding: 0.7rem; }
+  section[aria-label='Console'] pre,
+  section[aria-label='Console'] code,
+  .dark section[aria-label='Console'] pre,
+  .dark section[aria-label='Console'] code { overflow-wrap: anywhere; }
+}

@@ -1,0 +1,21 @@
+{
+    "$schema":  "./node_modules/@pterodactyl/sdk/manifest.schema.json",
+    "id":  "shorekeeper-ui",
+    "type":  "theme",
+    "name":  "Shorekeeper UI",
+    "version":  "1.2.0",
+    "requires":  {
+                     "panel":  "^2.0.0-dev",
+                     "sdk":  "\u003e=2.0.0-beta.6 \u003c3.0"
+                 },
+    "description":  "Editorial night theme inspired by Shorekeeper: full-bleed artwork, serif headings, gradient glass cards and outlined pill controls. Created by MIRAINOVA - theme.mirainova.web.id",
+    "author":  "MIRAINOVA",
+    "icon":  "sparkles",
+    "theme":  {
+                  "extends":  "classic",
+                  "stylesheet":  "dist/theme.css",
+                  "schemes":  [
+                                  "dark"
+                              ]
+              }
+}

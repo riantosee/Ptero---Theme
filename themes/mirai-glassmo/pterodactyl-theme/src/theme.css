@@ -1,0 +1,2 @@
+/* Plain CSS theme: the panel appends this stylesheet after its core bundle. */
+@import './tokens.css';

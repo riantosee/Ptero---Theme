@@ -1,0 +1,716 @@
+/*
+ * Ada Wong UI — v1.0.0 ("Classified Tactical Noir & Crimson Silk")
+ *
+ * Distinct visual architecture vs. Mirai Glassmo & Shorekeeper UI:
+ *   • Ballistic smoked gunmetal glass with 4-corner HUD targeting reticles
+ *   • Asymmetric 3px Crimson Silk left laser-bar on cards & active dossier tabs
+ *   • Chamfered / angled polygon tactical buttons (clip-path bevels)
+ *   • Chakra Petch angular agency headings + JetBrains Mono telemetry labels
+ *   • Multi-device responsive Ada Wong artwork (wide desktop + portrait mobile)
+ */
+
+:root,
+.dark {
+  --font-sans: 'Space Grotesk', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --aw-crimson: #d42436;
+  --aw-crimson-bright: #f2384b;
+  --aw-crimson-deep: #85121e;
+  --aw-gold: #d6a656;
+  --aw-gold-soft: rgba(214, 166, 86, 0.42);
+  --aw-line: rgba(232, 194, 122, 0.16);
+  --aw-line-crimson: rgba(212, 36, 54, 0.45);
+  --aw-text-soft: rgba(235, 224, 218, 0.72);
+  --aw-text-faint: rgba(190, 176, 170, 0.52);
+
+  /* Core semantic surfaces — smoked obsidian & crimson-tinted gunmetal */
+  --background: oklch(0.12 0.012 18);
+  --foreground: oklch(0.96 0.008 55);
+
+  --card: oklch(0.15 0.015 18 / 0.76);
+  --card-foreground: oklch(0.96 0.008 55);
+
+  --popover: oklch(0.14 0.016 18 / 0.95);
+  --popover-foreground: oklch(0.96 0.008 55);
+
+  --muted: oklch(0.19 0.016 18 / 0.72);
+  --muted-foreground: oklch(0.75 0.016 45);
+
+  --accent: oklch(0.23 0.035 20 / 0.78);
+  --accent-foreground: oklch(0.98 0.008 55);
+
+  --border: oklch(0.82 0.06 65 / 0.16);
+  --input: oklch(0.13 0.015 18 / 0.84);
+  --ring: oklch(0.60 0.21 22);
+
+  --primary: oklch(0.56 0.21 22);
+  --primary-foreground: oklch(0.98 0.005 60);
+
+  --secondary: oklch(0.20 0.018 20 / 0.82);
+  --secondary-foreground: oklch(0.94 0.01 55);
+
+  --success: oklch(0.72 0.15 160);
+  --success-foreground: oklch(0.14 0.03 160);
+
+  --warning: oklch(0.78 0.14 75);
+  --warning-foreground: oklch(0.16 0.03 75);
+
+  --destructive: oklch(0.60 0.22 24);
+  --destructive-foreground: oklch(0.98 0.005 60);
+
+  --info: oklch(0.76 0.12 68);
+  --info-foreground: oklch(0.15 0.02 68);
+
+  /* Crisp tactical geometry */
+  --radius: 0.18rem;
+
+  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.52);
+  --shadow-md: 0 18px 46px rgba(0, 0, 0, 0.62);
+  --shadow-lg: 0 28px 76px rgba(0, 0, 0, 0.72);
+
+  --terminal: oklch(0.10 0.012 18 / 0.92);
+  --terminal-foreground: oklch(0.94 0.01 55);
+  --terminal-red: oklch(0.66 0.21 22);
+  --terminal-green: oklch(0.76 0.15 158);
+  --terminal-yellow: oklch(0.82 0.14 75);
+  --terminal-blue: oklch(0.72 0.12 245);
+  --terminal-magenta: oklch(0.70 0.17 350);
+  --terminal-cyan: oklch(0.78 0.11 195);
+  --terminal-white: oklch(0.96 0.008 55);
+  --terminal-black: oklch(0.38 0.015 20);
+
+  --scrollbar-thumb: oklch(0.55 0.16 22 / 0.38);
+  --scrollbar-thumb-fill: oklch(0.62 0.20 22 / 0.65);
+}
+
+/* ───────────── Full-bleed responsive Ada Wong backdrop + HUD scanlines ───────────── */
+.dark body {
+  position: relative;
+  min-height: 100dvh;
+  background-color: #070506;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: #070506;
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(
+      95deg,
+      rgba(7, 5, 6, 0.62) 0%,
+      rgba(10, 7, 9, 0.24) 38%,
+      rgba(12, 7, 9, 0.06) 68%,
+      rgba(7, 5, 6, 0.44) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 5, 6, 0.34) 0%,
+      rgba(7, 5, 6, 0.06) 42%,
+      rgba(9, 6, 8, 0.48) 82%,
+      rgba(5, 4, 5, 0.84) 100%
+    ),
+    radial-gradient(circle at 66% 32%, rgba(212, 36, 54, 0.16), transparent 52%),
+    var(--aw-art-wide);
+  background-size: auto, cover, cover, auto, cover;
+  background-position: center, center, center, center, 62% center;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  filter: brightness(1.24) contrast(1.06) saturate(1.12);
+}
+
+/* Portrait phones & vertical viewports get the portrait-focused Ada Wong crop */
+@media (max-aspect-ratio: 4/5) {
+  .dark body::before {
+    background-image:
+      repeating-linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.012) 0px,
+        rgba(255, 255, 255, 0.012) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      linear-gradient(
+        180deg,
+        rgba(7, 5, 6, 0.30) 0%,
+        rgba(7, 5, 6, 0.08) 38%,
+        rgba(9, 6, 8, 0.54) 78%,
+        rgba(5, 4, 5, 0.86) 100%
+      ),
+      radial-gradient(circle at 52% 24%, rgba(212, 36, 54, 0.18), transparent 50%),
+      var(--aw-art-portrait);
+    background-size: auto, cover, auto, cover;
+    background-position: center, center, center, 52% 18%;
+    filter: brightness(1.26) contrast(1.06) saturate(1.12);
+  }
+}
+
+/* Tactical HUD perimeter telemetry ticks on desktop */
+.dark body::after {
+  content: 'CLASSIFIED // AGENCY DOSSIER — SEC-LEVEL 04';
+  position: fixed;
+  right: 1.5rem;
+  bottom: 0.85rem;
+  z-index: 40;
+  pointer-events: none;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: rgba(214, 166, 86, 0.46);
+  text-transform: uppercase;
+}
+
+.dark #app {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.dark ::selection {
+  background: rgba(212, 36, 54, 0.42);
+  color: #fff8f2;
+}
+
+/* ───────────── Typography — Tactical Agency Display + Monospace Telemetry ───────────── */
+.dark h1,
+.dark h2,
+.dark [data-ui='dialog'][data-part='title'] {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fbf6f0;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
+}
+
+.dark main h1 {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  line-height: 1.08;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--aw-crimson-bright);
+  box-shadow: -6px 0 18px -6px rgba(242, 56, 75, 0.65);
+}
+
+.dark main h2 {
+  font-size: clamp(1.25rem, 1.9vw, 1.65rem);
+  line-height: 1.18;
+}
+
+.dark main h1 + p,
+.dark main header p {
+  color: var(--aw-text-soft);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+/* ───────────── Top Telemetry Header Bar ───────────── */
+.dark #app > header,
+.dark #app > div > header {
+  position: relative;
+  background: linear-gradient(90deg, rgba(10, 7, 9, 0.88) 0%, rgba(16, 11, 14, 0.72) 55%, rgba(10, 7, 9, 0.86) 100%);
+  border-bottom: 1px solid rgba(214, 166, 86, 0.22);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.48);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+}
+
+/* Dual-tone Crimson Silk & Imperial Gold tactical bar along bottom of header */
+.dark #app > header::after,
+.dark #app > div > header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--aw-crimson-bright) 0%,
+    var(--aw-crimson-bright) 160px,
+    var(--aw-gold) 160px,
+    var(--aw-gold) 220px,
+    rgba(214, 166, 86, 0.18) 220px,
+    transparent 75%
+  );
+}
+
+.dark #app > header a:first-child,
+.dark #app > div > header a:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff6f0;
+}
+
+/* ───────────── Classified Dossier Sidebar Navigation ───────────── */
+.dark aside,
+.dark nav[aria-label='Main'],
+.dark [data-ui='sidebar'] {
+  background: linear-gradient(180deg, rgba(11, 8, 10, 0.82) 0%, rgba(8, 6, 8, 0.90) 100%);
+  border-right: 1px solid rgba(214, 166, 86, 0.18);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  backdrop-filter: blur(16px) saturate(1.1);
+}
+
+.dark aside a,
+.dark aside button,
+.dark nav[aria-label='Main'] a {
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--aw-text-soft);
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.dark aside a:hover,
+.dark aside button:hover,
+.dark nav[aria-label='Main'] a:hover {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(212, 36, 54, 0.16), rgba(214, 166, 86, 0.05) 70%, transparent);
+  border-color: rgba(214, 166, 86, 0.24);
+}
+
+.dark aside a[aria-current='page'],
+.dark aside a[data-active='true'],
+.dark aside a.active,
+.dark nav[aria-label='Main'] a[aria-current='page'] {
+  color: #fff8f2;
+  background: linear-gradient(90deg, rgba(212, 36, 54, 0.30) 0%, rgba(212, 36, 54, 0.10) 65%, rgba(214, 166, 86, 0.06) 100%);
+  border-color: rgba(212, 36, 54, 0.45);
+  border-left: 3px solid var(--aw-crimson-bright);
+  box-shadow: -4px 0 18px -4px rgba(242, 56, 75, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ───────────── Server Sub-Navigation Telemetry Strip ───────────── */
+.dark [aria-label='Server'] {
+  background: rgba(10, 7, 9, 0.76);
+  border-top: 1px solid rgba(214, 166, 86, 0.14);
+  border-bottom: 1px solid rgba(214, 166, 86, 0.22);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.dark [aria-label='Server'] a {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--aw-text-soft);
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.dark [aria-label='Server'] a:hover {
+  color: #ffffff;
+  background: rgba(212, 36, 54, 0.10);
+}
+
+.dark [aria-label='Server'] a[aria-current='page'],
+.dark [aria-label='Server'] a.active {
+  color: #fff6f0;
+  background: linear-gradient(180deg, transparent 0%, rgba(212, 36, 54, 0.18) 100%);
+}
+
+.dark [aria-label='Server'] a[aria-current='page']::after,
+.dark [aria-label='Server'] a.active::after {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--aw-crimson-bright), var(--aw-gold));
+  box-shadow: 0 0 12px rgba(242, 56, 75, 0.65);
+}
+
+/* ───────────── Tabs (Settings / General / Mail / Advanced) ───────────── */
+.dark [role='tablist'],
+.dark [data-ui='tabs'][data-part='list'] {
+  background: rgba(12, 9, 11, 0.62);
+  border: 1px solid rgba(214, 166, 86, 0.18);
+  border-left: 3px solid var(--aw-crimson);
+  border-radius: 2px;
+  padding: 0.2rem;
+  gap: 0.35rem;
+}
+
+.dark [role='tab'],
+.dark [data-ui='tabs'][data-part='trigger'] {
+  padding: 0.55rem 1rem;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--aw-text-soft);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.dark [role='tab'][aria-selected='true'],
+.dark [role='tab'][data-state='active'],
+.dark [data-ui='tabs'][data-part='trigger'][data-state='active'] {
+  color: #fff8f2;
+  background: linear-gradient(135deg, rgba(212, 36, 54, 0.32), rgba(133, 18, 30, 0.24));
+  border-color: rgba(242, 56, 75, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 14px rgba(212, 36, 54, 0.25);
+}
+
+/* ───────────── Cards — Ballistic Smoked Glass + Corner Targeting Reticles ───────────── */
+.dark [data-ui='card'][data-part='root'],
+.dark [class~='bg-card'] {
+  position: relative;
+  border: 1px solid rgba(214, 166, 86, 0.22);
+  border-left: 3px solid var(--aw-crimson-bright);
+  border-radius: var(--radius);
+  background-color: rgba(13, 9, 11, 0.46);
+  background-image:
+    /* Top-right Imperial Gold corner reticle */
+    linear-gradient(270deg, var(--aw-gold) 0, var(--aw-gold) 12px, transparent 12px),
+    linear-gradient(180deg, var(--aw-gold) 0, var(--aw-gold) 12px, transparent 12px),
+    /* Bottom-right Imperial Gold corner reticle */
+    linear-gradient(270deg, rgba(214, 166, 86, 0.6) 0, rgba(214, 166, 86, 0.6) 10px, transparent 10px),
+    linear-gradient(0deg, rgba(214, 166, 86, 0.6) 0, rgba(214, 166, 86, 0.6) 10px, transparent 10px),
+    /* Surface smoked gradient — translucent top so Ada Wong shines through */
+    linear-gradient(
+      145deg,
+      rgba(26, 15, 19, 0.42) 0%,
+      rgba(14, 10, 12, 0.56) 52%,
+      rgba(8, 6, 8, 0.74) 100%
+    );
+  background-size: 100% 2px, 2px 100%, 100% 1px, 1px 100%, 100% 100%;
+  background-position: top right, top right, bottom right, bottom right, center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 20px 52px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 238, 220, 0.10);
+  -webkit-backdrop-filter: blur(10px) saturate(1.18);
+  backdrop-filter: blur(10px) saturate(1.18);
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.dark a:hover > [data-ui='card'][data-part='root'],
+.dark [data-ui='card'][data-part='root']:hover {
+  border-color: rgba(214, 166, 86, 0.36);
+  border-left-color: var(--aw-crimson-bright);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.68),
+    -4px 0 18px -4px rgba(242, 56, 75, 0.45),
+    inset 0 1px 0 rgba(255, 238, 220, 0.14);
+}
+
+.dark [data-ui='card'][data-part='header'] {
+  border-bottom: 1px solid rgba(214, 166, 86, 0.14);
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(212, 36, 54, 0.04) 0px,
+    rgba(212, 36, 54, 0.04) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.dark [data-ui='card'][data-part='title'],
+.dark [data-ui='card'] h3 {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aw-gold);
+}
+
+/* ───────────── Chamfered Tactical Trigger Buttons ───────────── */
+.dark [data-ui='button'],
+.dark button[type='submit'] {
+  position: relative;
+  border-radius: 2px;
+  padding-inline: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 9px) 0,
+    100% 9px,
+    100% 100%,
+    9px 100%,
+    0 calc(100% - 9px)
+  );
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.dark [data-ui='button'][data-variant='default'],
+.dark [data-ui='button'][data-variant='primary'],
+.dark [data-ui='button']:not([data-variant]),
+.dark button[type='submit'] {
+  background: linear-gradient(135deg, #d42436 0%, #961422 100%);
+  border: 1px solid rgba(255, 196, 156, 0.48);
+  color: #fff8f4;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 8px 24px rgba(212, 36, 54, 0.36);
+}
+
+.dark [data-ui='button'][data-variant='default']:hover,
+.dark [data-ui='button'][data-variant='primary']:hover,
+.dark [data-ui='button']:not([data-variant]):hover,
+.dark button[type='submit']:hover {
+  background: linear-gradient(135deg, #eb2f42 0%, #b01829 100%);
+  border-color: var(--aw-gold);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 10px 28px rgba(242, 56, 75, 0.5);
+  transform: translateY(-1px);
+}
+
+.dark [data-ui='button'][data-variant='secondary'],
+.dark [data-ui='button'][data-variant='outline'],
+.dark [data-ui='button'][data-variant='ghost'] {
+  background: rgba(18, 13, 16, 0.72);
+  border: 1px solid rgba(214, 166, 86, 0.34);
+  color: #f3eae2;
+}
+
+.dark [data-ui='button'][data-variant='secondary']:hover,
+.dark [data-ui='button'][data-variant='outline']:hover,
+.dark [data-ui='button'][data-variant='ghost']:hover {
+  background: rgba(212, 36, 54, 0.16);
+  border-color: var(--aw-gold);
+  color: #ffffff;
+}
+
+.dark [data-ui='button'][data-variant='destructive'] {
+  background: linear-gradient(135deg, #7a111b, #4d0910);
+  border: 1px solid rgba(255, 110, 125, 0.65);
+  color: #ffe6e8;
+}
+
+/* ───────────── Telemetry Badges ───────────── */
+.dark [data-ui='badge'] {
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(214, 166, 86, 0.28);
+}
+
+/* ───────────── Form Inputs — Smoked Ballistic Fields ───────────── */
+.dark input:not([type='checkbox']):not([type='radio']),
+.dark textarea,
+.dark select,
+.dark [data-ui='input'],
+.dark [data-ui='textarea'],
+.dark [data-ui='select'][data-part='trigger'] {
+  border: 1px solid rgba(214, 166, 86, 0.22);
+  border-left: 2px solid rgba(212, 36, 54, 0.65);
+  border-radius: 2px;
+  background: rgba(9, 7, 9, 0.78);
+  color: var(--foreground);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.55);
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #877b76;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: var(--aw-gold);
+  border-left-color: var(--aw-crimson-bright);
+  background: rgba(14, 10, 13, 0.9);
+  box-shadow: 0 0 0 1px rgba(214, 166, 86, 0.25), -4px 0 14px -4px rgba(242, 56, 75, 0.5);
+}
+
+.dark :focus-visible {
+  outline: 1px solid var(--aw-gold);
+  outline-offset: 2px;
+}
+
+.dark label,
+.dark [data-ui='label'] {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dfd3ca;
+}
+
+/* ───────────── Tables ───────────── */
+.dark [data-ui='table'][data-part='headerCell'] {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aw-gold);
+}
+
+.dark [data-ui='table'][data-part='row']:hover {
+  background-color: rgba(212, 36, 54, 0.08);
+}
+
+/* ───────────── Console — Encrypted Terminal ───────────── */
+.dark section[aria-label='Console'] {
+  border: 1px solid rgba(214, 166, 86, 0.24);
+  border-left: 3px solid var(--aw-crimson-bright);
+  border-radius: var(--radius);
+  background: rgba(7, 5, 6, 0.92);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+
+.dark section[aria-label='Console'] > div:first-child {
+  padding: 1.25rem;
+}
+
+.dark section[aria-label='Console'] input[aria-label='Console command'] {
+  min-height: 3.2rem;
+  border-top: 1px solid rgba(214, 166, 86, 0.22);
+  border-radius: 0;
+  background: rgba(12, 8, 10, 0.96);
+  font-family: var(--font-mono);
+  caret-color: var(--aw-crimson-bright);
+}
+
+/* ───────────── Dialogs & Popovers ───────────── */
+.dark [role='dialog'],
+.dark [data-ui='dialog'][data-part='content'],
+.dark [data-ui='popover'][data-part='content'] {
+  border: 1px solid rgba(214, 166, 86, 0.28);
+  border-left: 3px solid var(--aw-crimson-bright);
+  border-radius: 2px;
+  background: linear-gradient(155deg, rgba(22, 14, 18, 0.96), rgba(9, 7, 9, 0.98));
+  box-shadow: var(--shadow-lg);
+}
+
+.dark [data-ui='dialog'][data-part='backdrop'] {
+  background: rgba(5, 3, 4, 0.76);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.dark [data-ui='progress'] {
+  background: rgba(214, 166, 86, 0.14);
+  border-radius: 1px;
+}
+
+.dark [role='progressbar'] {
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.dark ::-webkit-scrollbar { width: 8px; height: 8px; }
+.dark ::-webkit-scrollbar-track { background: rgba(8, 6, 7, 0.6); }
+.dark ::-webkit-scrollbar-thumb { border-radius: 2px; background: var(--scrollbar-thumb); }
+.dark ::-webkit-scrollbar-thumb:hover { background-color: var(--scrollbar-thumb-fill); }
+
+/* ───────────── Responsive & Mobile Multi-Device Support ───────────── */
+@media (max-width: 1024px) {
+  .dark body::after { display: none; }
+}
+
+@media (max-width: 720px) {
+  .dark body { overflow-x: clip; }
+
+  .dark #app,
+  .dark #app main,
+  .dark #app main > * { min-width: 0; max-width: 100%; }
+
+  .dark #app > header,
+  .dark #app > div > header { padding-inline: clamp(0.65rem, 3vw, 1rem); }
+
+  .dark main h1 {
+    font-size: clamp(1.65rem, 7vw, 2.15rem);
+    overflow-wrap: anywhere;
+  }
+
+  .dark [aria-label='Server'] { width: 100%; max-width: 100vw; overflow: hidden; }
+
+  .dark [aria-label='Server'] > div {
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .dark [aria-label='Server'] > div::-webkit-scrollbar { display: none; }
+
+  .dark [aria-label='Server'] a,
+  .dark [aria-label='Server'] [data-status] {
+    min-height: 44px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .dark [data-ui='card'][data-part='root'],
+  .dark [class~='bg-card'] { min-width: 0; max-width: 100%; }
+
+  .dark [data-ui='button'] { min-height: 44px; white-space: normal; }
+
+  .dark input:not([type='checkbox']):not([type='radio']),
+  .dark textarea,
+  .dark select { font-size: 16px; }
+
+  .dark section[aria-label='Console'] > div:first-child { padding: 0.7rem; }
+  .dark section[aria-label='Console'] pre,
+  .dark section[aria-label='Console'] code { overflow-wrap: anywhere; }
+}
+
+/* ───────────── Accessibility Preferences ───────────── */
+@media (prefers-reduced-motion: reduce) {
+  .dark *,
+  .dark *::before,
+  .dark *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .dark [data-ui='card'][data-part='root'],
+  .dark [class~='bg-card'],
+  .dark aside,
+  .dark #app > header,
+  .dark [aria-label='Server'] { background: #0c090b; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
