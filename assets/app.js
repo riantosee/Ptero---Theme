@@ -70,9 +70,36 @@
   }
 
   // ─────────────────────────────────────────────────────────
-  // 1. HEADER SCROLL EFFECT
+  // 1. HEADER SCROLL EFFECT & MOBILE NAVIGATION DRAWER
   // ─────────────────────────────────────────────────────────
   const siteHeader = document.getElementById('siteHeader');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const btnMobileOpenDocs = document.getElementById('btnMobileOpenDocs');
+
+  function closeMobileNav() {
+    if (!mobileMenuBtn || !mobileNavDrawer) return;
+    mobileMenuBtn.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileNavDrawer.classList.remove('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+  }
+
+  if (mobileMenuBtn && mobileNavDrawer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNavDrawer.classList.toggle('open');
+      mobileMenuBtn.classList.toggle('active', isOpen);
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileNavDrawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    });
+
+    mobileNavDrawer.querySelectorAll('.mobile-nav-item').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileNav();
+      });
+    });
+  }
+
   window.addEventListener('scroll', () => {
     if (!siteHeader) return;
     if (window.scrollY > 40) {
@@ -116,6 +143,10 @@
       btn.innerHTML = `<img src="${imgUrl}" alt="${pageObj.short}">`;
 
       btn.addEventListener('click', () => {
+        if (activeSpotPage === pageIdx && window.innerWidth <= 768) {
+          openDocModal(activeSpotTheme, pageIdx, 'both');
+          return;
+        }
         activeSpotPage = pageIdx;
         if (spotEnvBg) {
           spotEnvBg.style.backgroundImage = `url('${imgUrl}')`;
@@ -379,6 +410,13 @@
   const btnHeroOpenDocs = document.getElementById('btnHeroOpenDocs');
   if (btnHeroOpenDocs) {
     btnHeroOpenDocs.addEventListener('click', () => {
+      openDocModal('ada-wong-ui', 4, 'both');
+    });
+  }
+
+  if (btnMobileOpenDocs) {
+    btnMobileOpenDocs.addEventListener('click', () => {
+      closeMobileNav();
       openDocModal('ada-wong-ui', 4, 'both');
     });
   }

@@ -37,8 +37,31 @@
         <a href="mailto:riantosee@gmail.com" class="icon-link" title="Email riantosee@gmail.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </a>
-        <a href="https://ron-catherine-sponsors-coordination.trycloudflare.com/panel/themes" target="_blank" rel="noopener noreferrer" class="btn-outline-sm">
+        <a href="https://ron-catherine-sponsors-coordination.trycloudflare.com/panel/themes" target="_blank" rel="noopener noreferrer" class="btn-outline-sm nav-live-btn">
           LIVE PANEL
+        </a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+      <nav class="mobile-nav-links">
+        <a href="#home" class="mobile-nav-item">01 // Home</a>
+        <a href="#spotlight" class="mobile-nav-item">02 // Character & Theme Spotlight</a>
+        <a href="#editions" class="mobile-nav-item">03 // Theme Editions (.pteroext)</a>
+        <a href="#documentation" class="mobile-nav-item">04 // 56 Live Panel Screenshots</a>
+        <a href="#architecture" class="mobile-nav-item">05 // CLI Install & v2 Compatibility</a>
+        <a href="#creator" class="mobile-nav-item">06 // Official Creator Channels</a>
+      </nav>
+      <div class="mobile-nav-actions">
+        <button type="button" class="btn-village mobile-nav-cta" id="btnMobileOpenDocs">INSPECT 56 SCREENSHOTS</button>
+        <a href="https://ron-catherine-sponsors-coordination.trycloudflare.com/panel/themes" target="_blank" rel="noopener noreferrer" class="btn-outline-sm mobile-nav-live">
+          OPEN LIVE PTERODACTYL PANEL &rarr;
         </a>
       </div>
     </div>
@@ -52,7 +75,7 @@
       <h1 class="hero-monument">MIRAINOVA</h1>
       <p class="hero-sub-spaced">PTERODACTYL THEMES</p>
       <p class="hero-release">AVAILABLE NOW 2026 &nbsp;•&nbsp; 4 OFFICIAL EDITIONS &nbsp;•&nbsp; 56 UI SCREENSHOTS</p>
-      <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+      <div class="hero-cta-group">
         <a href="#editions" class="btn-village">EXPLORE EDITIONS</a>
         <button class="btn-village" id="btnHeroOpenDocs" type="button">INSPECT 56 SCREENSHOTS</button>
       </div>
