@@ -1,0 +1,36 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "landing-page": {
+      "root": "."
+    },
+    "ada-wong-theme": {
+      "root": "themes/ada-wong-ui/pterodactyl-theme",
+      "framework": "vite"
+    },
+    "luna-bliss-theme": {
+      "root": "themes/luna-bliss-ui/pterodactyl-theme",
+      "framework": "vite"
+    },
+    "mirai-glassmo-theme": {
+      "root": "themes/mirai-glassmo/pterodactyl-theme",
+      "framework": "vite"
+    },
+    "social-extension": {
+      "root": "themes/mirai-glassmo/social-extension",
+      "framework": "vite"
+    },
+    "shorekeeper-theme": {
+      "root": "themes/shorekeeper-ui/pterodactyl-theme",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "landing-page"
+      }
+    }
+  ]
+}
