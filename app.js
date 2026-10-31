@@ -1,6 +1,6 @@
 /**
  * MIRAINOVA — OFFICIAL PTERODACTYL v2 THEME STUDIO
- * Full 56-Screenshot Documentation & Interactive Village Showcase
+ * Full 56-Screenshot Documentation & Interactive Village Showcase (English Edition)
  */
 
 (function () {
@@ -20,47 +20,47 @@
   const THEMES = {
     'ada-wong-ui': {
       id: 'ada-wong-ui',
-      kicker: 'EDISI 01 // TACTICAL NOIR & CRIMSON SILK',
+      kicker: 'EDITION 01 // TACTICAL NOIR & CRIMSON SILK',
       title: 'Ada Wong UI',
-      desc: 'Dirancang dengan atmosfer agen rahasia berbalut crimson silk dan hitam legam. Menghadirkan siku bidik emas 4-titik (targeting corner reticles) di setiap kartu, tombol chamfered polygon, dan bar vertikal laser merah tanpa mengorbankan keterbacaan panel.',
-      tags: ['v1.1.0', 'ada-wong-ui', '14 Screenshot Lengkap'],
+      desc: 'Engineered with a classified covert-agent aesthetic wrapped in crimson silk and deep obsidian. Features 4-corner gold targeting reticles on every card, chamfered polygon buttons, and 3px crimson laser accents without sacrificing panel legibility.',
+      tags: ['v1.1.0', 'ada-wong-ui', '14 Full Screenshots'],
       portrait: 'assets/ada-portrait.jpg',
       download: 'downloads/ada-wong-ui-1.1.0.pteroext',
       defaultScenePage: 4,
-      rightNote: 'Menampilkan reticle bidik emas 4-sudut, tombol chamfered merah crimson, dan dual-artwork Ada Wong pada latar belakang panel.'
+      rightNote: 'Showcases 4-corner gold targeting reticles, chamfered crimson controls, and embedded dual-artwork Ada Wong backdrops.'
     },
     'shorekeeper-ui': {
       id: 'shorekeeper-ui',
-      kicker: 'EDISI 02 // EDITORIAL NIGHT CINEMA',
+      kicker: 'EDITION 02 // EDITORIAL NIGHT CINEMA',
       title: 'Shorekeeper UI',
-      desc: 'Tema malam sinematik bergaya pameran editorial yang terinspirasi dari Shorekeeper. Menggabungkan tipografi serif Cormorant Garamond yang anggun, kartu kaca transparan bergradasi vertikal yang menyatu ke latar malam, serta pendaran cahaya bintang cyan.',
-      tags: ['v1.2.0', 'shorekeeper-ui', '14 Screenshot Lengkap'],
+      desc: 'An editorial night-cinema theme inspired by Shorekeeper. Combines refined Cormorant Garamond serif typography, vertical gradient glass cards that dissolve into the starlit backdrop, and luminous cyan capsule controls.',
+      tags: ['v1.2.0', 'shorekeeper-ui', '14 Full Screenshots'],
       portrait: 'assets/shore-portrait.jpg',
       download: 'downloads/shorekeeper-ui-1.2.0.pteroext',
       defaultScenePage: 4,
-      rightNote: 'Menggunakan kanvas ilustrasi malam penuh dengan permukaan kartu kaca bergradasi vertikal dan tombol kapsul bergaris tepi.'
+      rightNote: 'Built around a full-bleed starlight canvas with vertical gradient glass cards and pill-outlined action controls.'
     },
     'luna-bliss-ui': {
       id: 'luna-bliss-ui',
-      kicker: 'EDISI 03 // CLASSIC 2001 DESKTOP TRIBUTE',
+      kicker: 'EDITION 03 // CLASSIC 2001 DESKTOP TRIBUTE',
       title: 'Luna Bliss UI',
-      desc: 'Penghormatan penuh kasih terhadap estetika desktop klasik tahun 2001 (Luna & padang rumput Bliss) tanpa menggunakan merek dagang Windows. Menghadirkan taskbar biru royal mengilap, kartu dialog krem #f6f4ea, dan tombol Start hijau 3D.',
-      tags: ['v1.1.0', 'luna-bliss-ui', '14 Screenshot Lengkap'],
+      desc: 'A loving tribute to the iconic 2001 desktop era (Luna blue chrome and rolling green Bliss meadow) crafted with 100% trademark-safe naming. Features a glossy royal-blue top bar, warm #f6f4ea dialog cards, and 3D green Start buttons.',
+      tags: ['v1.1.0', 'luna-bliss-ui', '14 Full Screenshots'],
       portrait: 'assets/luna-portrait.jpg',
       download: 'downloads/luna-bliss-ui-1.1.0.pteroext',
       defaultScenePage: 3,
-      rightNote: 'Membangkitkan nostalgia tahun 2001 dengan bilah atas glossy royal-blue, jendela dialog krem hangat, dan tombol hijau 3D.'
+      rightNote: 'Evokes 2001 desktop nostalgia with a glossy royal-blue taskbar, cream dialog window cards, and 3D beveled green buttons.'
     },
     'mirai-glassmo': {
       id: 'mirai-glassmo',
-      kicker: 'EDISI 04 // MINIMAL DARK GLASSMORPHISM',
+      kicker: 'EDITION 04 // MINIMAL DARK GLASSMORPHISM',
       title: 'Mirai Glassmo',
-      desc: 'Tema dark glassmorphism murni dengan 18px Gaussian Backdrop Blur yang halus dan kontras tinggi. Menggunakan aksen lavender lembut dan cyan bersih dengan ukuran paket sangat ringan untuk performa maksimal.',
-      tags: ['v1.2.0', 'mirai-glassmo', '14 Screenshot Lengkap'],
+      desc: 'Pure dark glassmorphism featuring a smooth 18px Gaussian backdrop blur and high-contrast legibility. Pairs restrained lavender and cyan accents with an ultra-lightweight 8 KB package footprint for zero-overhead performance.',
+      tags: ['v1.2.0', 'mirai-glassmo', '14 Full Screenshots'],
       portrait: 'screenshots/mirai-glassmo/04-admin-themes-desktop.png',
       download: 'downloads/mirai-glassmo-1.2.0.pteroext',
       defaultScenePage: 4,
-      rightNote: 'Desain baseline ekosistem MIRAINOVA: bersih, ringan (8 KB), dan fokus pada efek kaca buram gelap.'
+      rightNote: 'The official baseline of the MIRAINOVA ecosystem: ultra-clean, lightweight (8 KB), and focused on frosted dark glass.'
     }
   };
 
@@ -100,7 +100,6 @@
   const spotRightNote = document.getElementById('spotRightNote');
   const avatarCircles = document.querySelectorAll('.avatar-circle');
 
-  // The 5 key page indices shown in the vertical right strip (Login, Dashboard, Account, Admin Overview, Admin Themes)
   const SPOTLIGHT_THUMB_INDICES = [0, 1, 2, 3, 4];
 
   function renderSpotlightThumbs() {
@@ -112,7 +111,7 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'spot-v-thumb' + (pageIdx === activeSpotPage ? ' active' : '');
-      btn.title = `${pageObj.title} — Klik untuk ganti latar, klik 2x untuk layar penuh`;
+      btn.title = `${pageObj.title} — Click to switch backdrop, double-click for full inspector`;
       const imgUrl = getScreenshotUrl(activeSpotTheme, pageIdx, 'desktop');
       btn.innerHTML = `<img src="${imgUrl}" alt="${pageObj.short}">`;
 
@@ -313,23 +312,20 @@
     if (!t || !p) return;
 
     if (docModalTitle) {
-      docModalTitle.textContent = `${t.title} — 14 Screenshot Dokumentasi`;
+      docModalTitle.textContent = `${t.title} — 14 Full Documentation Screenshots`;
     }
     if (docModalDownload) {
       docModalDownload.href = t.download;
     }
 
-    // Active Theme Tab
     docThemeTabs.forEach(tab => {
       tab.classList.toggle('active', tab.dataset.theme === modalTheme);
     });
 
-    // Active View Mode Button
     docViewBtns.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.mode === modalViewMode);
     });
 
-    // Show/hide frames according to mode
     if (frameDesktopWrap) {
       frameDesktopWrap.style.display = (modalViewMode === 'both' || modalViewMode === 'desktop') ? 'flex' : 'none';
     }
@@ -346,7 +342,7 @@
     if (modalDesktopCap) modalDesktopCap.textContent = `DESKTOP (1440×900) — ${p.title}`;
     if (modalMobileCap) modalMobileCap.textContent = `MOBILE (390×844) — ${p.short}`;
     if (modalPageCounter) {
-      modalPageCounter.textContent = `Halaman ${modalPageIdx + 1} dari ${PAGES.length} — ${p.title} (${p.route})`;
+      modalPageCounter.textContent = `Page ${modalPageIdx + 1} of ${PAGES.length} — ${p.title} (${p.route})`;
     }
 
     renderModalSidebar();
@@ -372,7 +368,6 @@
     }
   }
 
-  // Bind all elements with .js-open-doc
   document.querySelectorAll('.js-open-doc').forEach(el => {
     el.addEventListener('click', () => {
       const th = el.dataset.theme || 'ada-wong-ui';
@@ -456,7 +451,7 @@
       ].join('\n');
 
       navigator.clipboard.writeText(cmd).then(() => {
-        showToast('Perintah CLI berhasil disalin ke clipboard!');
+        showToast('CLI commands copied to clipboard!');
       });
     });
   }
