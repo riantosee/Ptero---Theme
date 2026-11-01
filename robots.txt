@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theme.mirainova.web.id/sitemap.xml
