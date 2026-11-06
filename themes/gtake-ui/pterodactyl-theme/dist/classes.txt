@@ -1,1 +1,22 @@
-bg-background text-foreground card border-border
+--gt-art-portrait
+--gt-art-wide
+--gt-blue-400
+--gt-blue-500
+--gt-blue-600
+--gt-navy-deep
+--gt-navy-card
+--font-display
+--font-mono
+--font-sans
+--foreground
+--radius
+--radius-pill
+--scrollbar-thumb
+--shadow-lg
+gtake-ui
+G-Take UI
+MIRAINOVA
+theme
+stylesheet
+dist/theme.css
+dark
