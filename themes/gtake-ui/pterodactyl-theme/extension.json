@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/@pterodactyl/sdk/manifest.schema.json",
+  "id": "gtake-ui",
+  "type": "theme",
+  "name": "G-Take UI",
+  "version": "1.0.0",
+  "requires": {
+    "panel": "^2.0.0-dev",
+    "sdk": ">=2.0.0-beta.6 <3.0"
+  },
+  "description": "Midnight cobalt glassmorphism inspired by G.Take modern productivity dashboards. Features glowing electric-blue accents, frosted obsidian cards, and streamlined capsule controls.",
+  "author": "MIRAINOVA",
+  "icon": "palette",
+  "theme": {
+    "extends": "classic",
+    "stylesheet": "dist/theme.css",
+    "schemes": [
+      "dark"
+    ]
+  }
+}

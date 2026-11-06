@@ -754,6 +754,13 @@ body {
   gap: 44px 36px;
 }
 
+.editions-grid .edition-item:nth-child(5) {
+  grid-column: span 2;
+  max-width: 620px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .edition-item {
   display: flex;
   flex-direction: column;
@@ -1626,6 +1633,11 @@ body {
   .editions-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .editions-grid .edition-item:nth-child(5) {
+    grid-column: span 1;
+    max-width: 100%;
   }
 
   .locations-layout {

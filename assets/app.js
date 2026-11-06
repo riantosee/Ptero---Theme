@@ -61,6 +61,17 @@
       download: 'downloads/mirai-glassmo-1.2.0.pteroext',
       defaultScenePage: 4,
       rightNote: 'The official baseline of the MIRAINOVA ecosystem: ultra-clean, lightweight (8 KB), and focused on frosted dark glass.'
+    },
+    'gtake-ui': {
+      id: 'gtake-ui',
+      kicker: 'EDITION 05 // MIDNIGHT COBALT GLASSMORPHISM',
+      title: 'G-Take UI',
+      desc: 'Inspired by the modern G.Take productivity dashboard interface. Features a deep obsidian-navy starlight canvas, electric cobalt blue glowing accents, frosted floating glass cards with 18px backdrop blur, and streamlined capsule action controls.',
+      tags: ['v1.0.0', 'gtake-ui', '14 Full Screenshots'],
+      portrait: 'assets/gtake-portrait.jpg',
+      download: 'downloads/gtake-ui-1.0.0.pteroext',
+      defaultScenePage: 1,
+      rightNote: 'Modeled after the G.Take modern interface with glowing cobalt accents, pill badges, and diagonal striped progress indicators.'
     }
   };
 

@@ -24,7 +24,7 @@
 > **Are legacy Pterodactyl versions (`v1.x` / `v1.11.x` and older) supported?**
 > **NO — LEGACY PTERODACTYL v1.x IS NOT SUPPORTED.**
 >
-> Every theme in this repository (**Ada Wong UI**, **Shorekeeper UI**, **Luna Bliss UI**, and **Mirai Glassmo**) is engineered exclusively on top of the **Pterodactyl v2 Extension & Theme System** (`.pteroext` archive format, `@pterodactyl/sdk`, and Tailwind CSS v4 tokens).
+> Every theme in this repository (**Ada Wong UI**, **Shorekeeper UI**, **Luna Bliss UI**, **Mirai Glassmo**, and **G-Take UI**) is engineered exclusively on top of the **Pterodactyl v2 Extension & Theme System** (`.pteroext` archive format, `@pterodactyl/sdk`, and Tailwind CSS v4 tokens).
 > Legacy Pterodactyl `v1.x` panels rely on monolithic Blade templates + Laravel Mix (Webpack) and **do not possess the `.pteroext` extension loader** or the `php artisan p:extension:install` and `php artisan p:theme:activate` CLI commands.
 
 | Panel Version / Environment | Compatibility Status | Technical Explanation |
@@ -47,6 +47,7 @@ All production-ready `.pteroext` packages are available directly inside the [`do
 | **02** | **Shorekeeper UI** | `shorekeeper-ui` | `v1.2.0` | *Editorial Night Cinema & Starlight Cyan* — Refined Cormorant Garamond serif headings, vertical gradient glass cards fading into the night canvas, luminous cyan capsule buttons. | [📥 Download `.pteroext`](./downloads/shorekeeper-ui-1.2.0.pteroext) | [`themes/shorekeeper-ui`](./themes/shorekeeper-ui) |
 | **03** | **Luna Bliss UI** | `luna-bliss-ui` | `v1.1.0` | *Classic 2001 Desktop Tribute* — Glossy royal-blue Luna taskbar, warm `#f6f4ea` dialog cards with rounded blue title bars, 3D beveled green Start buttons, and rolling green Bliss meadow (100% trademark-safe). | [📥 Download `.pteroext`](./downloads/luna-bliss-ui-1.1.0.pteroext) | [`themes/luna-bliss-ui`](./themes/luna-bliss-ui) |
 | **04** | **Mirai Glassmo** | `mirai-glassmo` | `v1.2.0` | *Minimalist Dark Glassmorphism* — Pure dark frosted glass with 18px Gaussian backdrop blur, restrained lavender and cyan accents, and an ultra-lightweight 8 KB package footprint. | [📥 Download `.pteroext`](./downloads/mirai-glassmo-1.2.0.pteroext) | [`themes/mirai-glassmo`](./themes/mirai-glassmo) |
+| **05** | **G-Take UI** | `gtake-ui` | `v1.0.0` | *Midnight Cobalt Glassmorphism* — Modeled after G.Take modern productivity dashboards. Deep obsidian-navy canvas, electric cobalt blue glowing accents, frosted floating cards, and streamlined capsule controls. | [📥 Download `.pteroext`](./downloads/gtake-ui-1.0.0.pteroext) | [`themes/gtake-ui`](./themes/gtake-ui) |
 
 ---
 
