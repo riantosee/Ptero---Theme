@@ -68,9 +68,9 @@
       title: 'G-Take UI',
       desc: 'Inspired by the modern G.Take productivity dashboard interface. Features a deep obsidian-navy starlight canvas, electric cobalt blue glowing accents, frosted floating glass cards with 18px backdrop blur, and streamlined capsule action controls.',
       tags: ['v1.0.0', 'gtake-ui', '14 Full Screenshots'],
-      portrait: 'assets/gtake-portrait.jpg',
+      portrait: 'screenshots/gtake-ui/04-admin-themes-desktop.png',
       download: 'downloads/gtake-ui-1.0.0.pteroext',
-      defaultScenePage: 1,
+      defaultScenePage: 4,
       rightNote: 'Modeled after the G.Take modern interface with glowing cobalt accents, pill badges, and diagonal striped progress indicators.'
     }
   };
